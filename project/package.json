@@ -3,7 +3,7 @@
   "private": true,
   "source": "./src/index.html",
   "scripts": {
-    "lint": "eslint ./",
+    "lint": "eslint .",
     "start": "parcel",
     "build": "parcel build"
   },
