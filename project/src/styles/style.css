@@ -67,12 +67,12 @@
 
 .table-wrapper {
   max-width: 100vw;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .table {
   margin-top: 26px;
-  min-width: 840px;
+  min-width: 1200px;
   width: 100%;
   border-collapse: collapse;
 }
@@ -114,19 +114,98 @@
   position: relative;
 }
 
-.contanct {
+.contact {
+  position: relative;
   display: inline-block;
   width: 16px;
   height: 16px;
   opacity: 0.7;
 }
 
-.contanct:not(:last-child) {
+.contact:not(:last-child) {
   margin-right: 7;
 }
 
-.contanct_facebook {
+/* Tooltip logic */
+
+.contact__tooltip {
+  visibility: hidden;
+  box-sizing: border-box;
+  position: absolute;
+  transform: translateY(calc(-100% - 11px)) translateX(calc(-50% + 8px));
+  padding: 7px 15px;
+  width: max-content;
+  max-width: 163px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  background-color: #333;
+  color: white;
+}
+
+.contact::before {
+  visibility: hidden;
+  content: "";
+  position: absolute;
+  top: -26px;
+  left: 2px;
+  transform: rotate(66deg) skewX(45deg);
+  width: 14px;
+  height: 14px;
+  background-color: #333;
+}
+
+.contact_open.contact::before {
+  visibility: visible;
+}
+
+.contact_open .contact__tooltip {
+  visibility: visible;
+}
+
+.contact_open.contact {
+  opacity: 1;
+}
+
+.contact__link {
+  color: #b89eff;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.contact__tel {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Tooltip logic end */
+
+.contact_facebook {
   background-image: url("../images/social/fb.svg");
+}
+
+.contact_email {
+  background-image: url("../images/social/mail.svg");
+}
+
+.contact_other {
+  background-image: url("../images/social/other.svg");
+}
+
+.contact_vk {
+  background-image: url("../images/social/vk.svg");
+}
+
+.contact_tel {
+  background-image: url("../images/social/phone.svg");
+}
+
+.contact_vk {
+  background-image: url("../images/social/vk.svg");
 }
 
 .small-text {
