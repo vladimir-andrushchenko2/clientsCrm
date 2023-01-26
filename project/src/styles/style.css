@@ -138,7 +138,7 @@
   visibility: hidden;
   box-sizing: border-box;
   position: absolute;
-  transform: translateY(calc(-100% - 18px)) translateX(calc(-50% + 8px));
+  transform: translateY(calc(-100% - 11px)) translateX(calc(-50% + 8px));
   padding: 7px 15px;
   width: max-content;
   max-width: 163px;
