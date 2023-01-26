@@ -126,6 +126,10 @@
   margin-right: 7;
 }
 
+.contacts-wrapper {
+  display: flex;
+}
+
 /* Tooltip logic */
 
 .contact__tooltip {
@@ -182,8 +186,6 @@
   color: #fff;
 }
 
-/* Tooltip logic end */
-
 .contact_facebook {
   background-image: url("../images/social/fb.svg");
 }
@@ -207,6 +209,14 @@
 .contact_vk {
   background-image: url("../images/social/vk.svg");
 }
+
+.svg-text {
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 11px;
+}
+
+/* Tooltip logic end */
 
 .small-text {
   font-size: 10px;
