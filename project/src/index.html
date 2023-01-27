@@ -15,39 +15,61 @@
 
 <body class="root">
 
-  <div class="popup">
+  <div class="popup popup_opened">
     <div class="popup__container">
       <div class="popup__form-wrapper">
-        <form class="popup__form">
+
+        <form class="popup__form form">
+
           <div class="popup__form-container">
-            <h1 class="popup__title">Изменить данные</h1>
-            <p class="popup__subtitle">ID: 123458</p>
-            <label>
-              <span class="popup__label">Фамилия<span class="accent-text">*</span></span>
+            <div class="form__info">
+              <h1 class="popup__title">Изменить данные</h1>
+              <p class="popup__subtitle">ID: 123458</p>
+            </div>
+
+            <label class="popup__label">
+              <span class="popup__label-text">Фамилия<span class="accent-text">*</span></span>
               <input type="text" class="popup__input" required>
             </label>
-            <label>
-              <span class="popup__label">Имя<span class="accent-text">*</span></span>
+
+            <label class="popup__label">
+              <span class="popup__label-text">Имя<span class="accent-text">*</span></span>
               <input type="text" class="popup__input" required>
             </label>
-            <label>
-              <span class="popup__label">Отчество</span>
+
+            <label class="popup__label">
+              <span class="popup__label-text">Отчество</span>
               <input type="text" class="popup__input" required>
             </label>
           </div>
+
           <div class="popup__form-container popup__form-container_dark">
             <div class="form__contact-wrapper">
-              <button type="button" class="form__contact-option">Телефон</button>
-              <input class="form__contact-input" type="text" placeholder="Введите данные контакта">
+              <div class="form__contact-options form__contact-options_visible">
+                <button type="button" class="form__contact-option-btn form__open-contact-options-btn">
+                  Телефон
+                  <span class="menu-arrow"></span></button>
+              </div>
+
+              <input class="form__contact-input" type="tel" placeholder="Введите данные контакта" required>
+
+              <button type="button" class="form__clear-contact-btn" aria-label="Очистить поле"></button>
             </div>
-            <button type="button">Добавить контакт</button>
+            <button type="button" class="form__add-contact-btn">Добавить контакт</button>
           </div>
-          <button type="button">Сохранить</button>
-          <button type="button">Удалить клиента</button>
+
+          <div class="popup__form-container">
+            <button type="submit" class="form__submit-btn">
+              <span class="submit-loading-indicator"></span>
+              Сохранить
+            </button>
+            <button type="button" class="form__delete-btn">Удалить клиента</button>
+          </div>
+
+        </form>
+
       </div>
-      </form>
     </div>
-  </div>
   </div>
 
   <header class="header">
