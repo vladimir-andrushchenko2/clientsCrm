@@ -16,59 +16,67 @@
 <body class="root">
 
   <div class="popup popup_opened">
-    <div class="popup__container">
-      <div class="popup__form-wrapper">
+    <div class="popup__contents-container">
+      <button aria-label="закрыть окно" type="button" class="popup__close-btn"></button>
 
-        <form class="popup__form form">
+      <form class="popup__form form">
 
-          <div class="popup__form-container">
-            <div class="form__info">
-              <h1 class="popup__title">Изменить данные</h1>
-              <p class="popup__subtitle">ID: 123458</p>
-            </div>
-
-            <label class="popup__label">
-              <span class="popup__label-text">Фамилия<span class="accent-text">*</span></span>
-              <input type="text" class="popup__input" required>
-            </label>
-
-            <label class="popup__label">
-              <span class="popup__label-text">Имя<span class="accent-text">*</span></span>
-              <input type="text" class="popup__input" required>
-            </label>
-
-            <label class="popup__label">
-              <span class="popup__label-text">Отчество</span>
-              <input type="text" class="popup__input" required>
-            </label>
+        <div class="popup__form-container">
+          <div class="form__info">
+            <h1 class="popup__title">Изменить данные</h1>
+            <p class="popup__subtitle">ID: 123458</p>
           </div>
 
-          <div class="popup__form-container popup__form-container_dark">
-            <div class="form__contact-wrapper">
-              <div class="form__contact-options form__contact-options_visible">
-                <button type="button" class="form__contact-option-btn form__open-contact-options-btn">
+          <label class="popup__label">
+            <span class="popup__label-text">Фамилия<span class="accent-text">*</span></span>
+            <input type="text" class="popup__input" required>
+          </label>
+
+          <label class="popup__label">
+            <span class="popup__label-text">Имя<span class="accent-text">*</span></span>
+            <input type="text" class="popup__input" required>
+          </label>
+
+          <label class="popup__label">
+            <span class="popup__label-text">Отчество</span>
+            <input type="text" class="popup__input" required>
+          </label>
+        </div>
+
+        <div class="popup__form-container popup__form-container_dark">
+
+          <ul class="contacts">
+            <li class="contact-wrapper">
+
+              <div class="contact-options form__contact-options_visible">
+                <button type="button" class="contact-btn contact-open-options-btn">
                   Телефон
-                  <span class="menu-arrow"></span></button>
+                  <span class="menu-arrow"></span>
+                </button>
+
               </div>
 
-              <input class="form__contact-input" type="tel" placeholder="Введите данные контакта" required>
+              <input class="contact-input" type="tel" placeholder="Введите данные контакта" required>
 
-              <button type="button" class="form__clear-contact-btn" aria-label="Очистить поле"></button>
-            </div>
-            <button type="button" class="form__add-contact-btn">Добавить контакт</button>
-          </div>
+              <button type="button" class="contact-clear-btn" aria-label="Очистить поле"></button>
 
-          <div class="popup__form-container">
-            <button type="submit" class="form__submit-btn">
-              <span class="submit-loading-indicator"></span>
-              Сохранить
-            </button>
-            <button type="button" class="form__delete-btn">Удалить клиента</button>
-          </div>
+            </li>
+          </ul>
 
-        </form>
+          <button type="button" class="form__add-contact-btn">Добавить контакт</button>
 
-      </div>
+        </div>
+
+        <div class="popup__form-container">
+          <button type="submit" class="form__submit-btn">
+            <span class="submit-loading-indicator"></span>
+            Сохранить
+          </button>
+          <button type="button" class="form__delete-btn">Удалить клиента</button>
+        </div>
+
+      </form>
+
     </div>
   </div>
 

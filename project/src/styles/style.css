@@ -321,19 +321,28 @@ button {
   opacity: 1;
 }
 
-.popup__container {
+.popup__contents-container {
+  position: relative;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   width: 93.75%;
   max-width: 450px;
+  background-color: white;
+  padding: 24px 0 29px;
 }
 
-.popup__form-wrapper {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  padding: 24px 0 29px;
+.popup__close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-image: url("../images/ui/close-popup.svg");
+  background-position: center;
+  width: 15px;
+  height: 15px;
+  border: 0;
+  background-color: inherit;
+  cursor: pointer;
 }
 
 .popup__title {
@@ -394,16 +403,16 @@ button {
   border-bottom: 1px solid #c8c5d1;
 }
 
-.form__contact-wrapper {
-  display: flex;
-}
-
 .form__info {
   display: flex;
   align-items: flex-end;
 }
 
-.form__contact-input {
+.contact-wrapper {
+  display: flex;
+}
+
+.contact-input {
   width: 100%;
   padding: 8px 12px;
   font-weight: 600;
@@ -415,16 +424,16 @@ button {
   border-left: 0;
 }
 
-.form__contact-input::placeholder {
+.contact-input::placeholder {
   color: #b0b0b0;
 }
 
-.form__contact-options {
+.contact-options {
   position: relative;
   display: flex;
 }
 
-.form__contact-option-btn {
+.contact-btn {
   min-width: 124px;
   padding: 10px 8px 10px 12px;
   font-weight: 400;
@@ -432,7 +441,7 @@ button {
   line-height: 16px;
 }
 
-.form__clear-contact-btn {
+.contact-clear-btn {
   display: block;
   padding: 0 13.5px;
   background-color: #e7e5eb;
@@ -444,17 +453,17 @@ button {
   cursor: pointer;
 }
 
-.form__clear-contact-btn:active {
-  background-color: #c3c2c6;
-}
-
-.form__open-contact-options-btn {
+.contact-open-options-btn {
   background-color: #e7e5eb;
   border: 1px solid #c8c5d1;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+}
+
+.form__clear-contact-btn:active {
+  background-color: #c3c2c6;
 }
 
 .menu-arrow {
@@ -512,3 +521,5 @@ button {
   border: 0;
   text-decoration: underline;
 }
+
+/* Pop up end */
