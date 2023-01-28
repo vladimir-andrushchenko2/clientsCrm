@@ -212,12 +212,6 @@ button {
   background-image: url("../images/social/vk.svg");
 }
 
-.svg-text {
-  font-weight: 600;
-  font-size: 8px;
-  line-height: 11px;
-}
-
 .contact-show-more-contacts-btn {
   border: 0;
   background-color: inherit;
