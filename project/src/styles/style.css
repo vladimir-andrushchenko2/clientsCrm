@@ -408,11 +408,15 @@ button {
   align-items: flex-end;
 }
 
-.contact-wrapper {
+.contact__item {
   display: flex;
 }
 
-.contact-input {
+.contact__item:last-child {
+  margin-bottom: 25px;
+}
+
+.contact__input {
   width: 100%;
   padding: 8px 12px;
   font-weight: 600;
@@ -428,20 +432,50 @@ button {
   color: #b0b0b0;
 }
 
-.contact-options {
-  position: relative;
-  display: flex;
-}
-
-.contact-btn {
-  min-width: 124px;
+.contact__btn {
+  width: 124px;
   padding: 10px 8px 10px 12px;
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
+  text-align: left;
+  text-overflow: ellipsis;
 }
 
-.contact-clear-btn {
+.contact__open-options-btn {
+  background-color: #e7e5eb;
+  border: 1px solid #c8c5d1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.contact__options {
+  visibility: hidden;
+  position: absolute;
+  list-style: none;
+  border-bottom: 1px solid #c8c5d1;
+}
+
+.contact__options_visible {
+  visibility: visible;
+}
+
+.contact__select {
+  position: relative;
+}
+
+.contact__option {
+  background-color: #f4f3f6;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 1px solid #c8c5d1;
+  border-right: 1px solid #c8c5d1;
+}
+
+.contact__clear-btn {
   display: block;
   padding: 0 13.5px;
   background-color: #e7e5eb;
@@ -453,16 +487,7 @@ button {
   cursor: pointer;
 }
 
-.contact-open-options-btn {
-  background-color: #e7e5eb;
-  border: 1px solid #c8c5d1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-
-.form__clear-contact-btn:active {
+.contact-open-options-btn:active {
   background-color: #c3c2c6;
 }
 
@@ -475,7 +500,7 @@ button {
 }
 
 .form__add-contact-btn {
-  margin: 25px auto 0;
+  margin: 0 auto;
   padding-left: 20px;
   background-color: transparent;
   border: 0;
@@ -520,6 +545,19 @@ button {
   background-color: inherit;
   border: 0;
   text-decoration: underline;
+}
+
+.form__confirmation {
+  max-width: 275px;
+  text-align: center;
+  margin: auto;
+}
+
+.popup__confirmation-msg {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 11px;
 }
 
 /* Pop up end */
