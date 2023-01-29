@@ -52,7 +52,9 @@ function createContactTooltipElement({ type, value }) {
   return tooltip;
 }
 
-function createClientRowElement({ id, createdAt, updatedAt, name, surname, lastName, contacts }) {
+function createClientRowElement({
+  id, createdAt, updatedAt, name, surname, lastName, contacts,
+}) {
   const row = clientRowTemplate.content.cloneNode(true);
 
   row.querySelector('.client-id').textContent = id;
