@@ -217,63 +217,7 @@
             </tr>
           </thead>
 
-          <tbody>
-            <tr class="client table__row table__data-row">
-              <td class="table__cell client__id muted-text">12345</td>
-              <td class="table__cell client__name">Скворцов Денис Юрьевич</td>
-              <td class="table__cell client__created">21.02.2021<span class="muted-text client__time">12:41</span></td>
-              <td class="table__cell client__edited">21.02.2021<span class="muted-text client__time">12:41</span></td>
-              <td class="table__cell client__contacts">
-                <span class="contacts-wrapper">
-
-                  <span tabindex=0 class="contact contact_tel">
-                    <span class="contact__tooltip"><a class="contact__tel" href="tel:+9788559080">+9788559080</a></span>
-                  </span>
-                  <span tabindex=0 class="contact contact_email">
-                    <span class="contact__tooltip">
-                      <a class="contact__link" href="mailto:LoremIpsum@gmail.com">LoremIpsum@gmail.com
-                      </a>
-                    </span>
-                  </span>
-                  <span tabindex=0 class="contact contact_other">
-                    <span class="contact__tooltip">
-                      Twitter:
-                      <a class="contact__link" href="#">@den77
-                      </a>
-                    </span>
-                  </span>
-                  <span tabindex=0 class="contact contact_facebook">
-                    <span class="contact__tooltip">
-                      Facebook:
-                      <a class="contact__link" href="#">@den77
-                      </a>
-                    </span>
-                  </span>
-                  <span tabindex=0 class="contact contact_vk contact_open">
-                    <span class="contact__tooltip">
-                      VK:
-                      <a class="contact__link" href="#">@den77
-                      </a>
-                    </span>
-                  </span>
-                  <span tabindex=0 class="contact-show-more-contacts-btn">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="8" cy="8" r="7.5" stroke="#9873FF" />
-                      <text class="svg-text" x="3" y="11" fill="#000">+6</text>
-                    </svg>
-                  </span>
-                </span>
-              </td>
-              <td class="table__cell table__actions-cell">
-                <button type="button" class="button client-action-btn client-edit-btn">
-                  Изменить
-                </button>
-                <button type="button" class="button client-action-btn client-delete-btn">
-                  Удалить
-                </button>
-              </td>
-            </tr>
-          </tbody>
+          <tbody class="table-clients-container"></tbody>
         </table>
       </div>
 
@@ -284,39 +228,88 @@
             d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z"
             fill="#9873FF" />
         </svg>
-        Добавить клиента</button>
+        Добавить клиента
+      </button>
     </div>
   </main>
 
-  <template>
+  <template id="add-contact-field-template">
     <li class="contact__wrapper">
-
       <div class="contact__select">
+        <!-- Button for opening menu to choose contact type -->
         <button type="button" class="contact__btn contact__open-options-btn">
-          Телефон
+          <span class="contact__btn-text"></span>
           <span class="menu-arrow"></span>
         </button>
 
+        <!-- Menu with contact options -->
         <ul class="contact__options contact__options_visible">
           <li class="contact-option-wrapper">
-            <button class="contact__btn contact__option" type="button">Доп. телефон</button>
+            <button class="contact__btn contact__option" type="button" data-type="tel">Доп. телефон</button>
           </li>
           <li class="contact-option-wrapper">
-            <button class="contact__btn contact__option" type="button">Email</button>
+            <button class="contact__btn contact__option" type="button" data-type="email">Email</button>
           </li>
           <li class="contact-option-wrapper">
-            <button class="contact__btn contact__option" type="button">Vk</button>
+            <button class="contact__btn contact__option" type="button" data-type="vk">Vk</button>
           </li>
         </ul>
-
       </div>
 
-      <input class="contact__input" type="tel" placeholder="Введите данные контакта" required>
+      <input class="contact__input" type="text" placeholder="Введите данные контакта" required>
 
       <button type="button" class="contact__clear-btn" aria-label="Очистить поле"></button>
-
     </li>
   </template>
+
+  <template id="contact-table-row">
+    <tr class="client table__row table__data-row">
+      <td class="table__cell client-id muted-text">#</td>
+
+      <td class="table__cell client-name">#</td>
+
+      <td class="table__cell client-created">
+        <span class="client-created-date">#</span>
+        <span class="muted-text client__time client-created-time">#</span>
+      </td>
+
+      <td class="table__cell client-edited">
+        <span class="client-edited-date">#</span>
+        <span class="muted-text client__time client-edited-time">#</span>
+      </td>
+
+      <td class="table__cell client-contacts">
+        <span class="contacts-wrapper"></span>
+      </td>
+
+      <td class="table__cell table__actions-cell">
+        <button type="button" class="button client-action-btn client-edit-btn">
+          Изменить
+        </button>
+        <button type="button" class="button client-action-btn client-delete-btn">
+          Удалить
+        </button>
+      </td>
+    </tr>
+  </template>
+
+  <template id="contact-tooltip">
+    <!-- add .contact_open for .contact to open -->
+    <span class="contact tooltip-wrapper ">
+      <!-- .contact-tooltip-(facebook|email|other|vk|tel|facebook)-icon  add to button -->
+      <button aria-label="Показать контакт" type="button" class="contact-show-tooltip-btn"></button>
+      <span class="contact__tooltip tooltip"></span>
+    </span>
+  </template>
+
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 
 </html>
+
+<!-- Examples of contact tooltips
+  inside tooltip message i use
+  <a class="contact__tel" href="tel:+#">#</a>
+  <a class="contact__link" href="mailto:#">#</a>
+  Twitter: <a class="contact__link" href="#">#</a>
+-->
