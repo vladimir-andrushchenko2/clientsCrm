@@ -3,7 +3,9 @@ const clientContactTooltipTemplate = document.querySelector('#contact-tooltip');
 const clientsTable = document.querySelector('.table-clients-container');
 const tableHead = document.querySelector('.table__head');
 const addClientButton = document.querySelector('.add-client-btn');
-const addUserPopUp = document.querySelector('.popup_add-user');
+const addClientPopUp = document.querySelector('.popup_add-user');
+const closePopUpButtonSelector = '.popup__close-btn';
+const popupOpenedClass = 'popup_opened';
 
 export {
   clientRowTemplate,
@@ -11,5 +13,7 @@ export {
   clientsTable,
   tableHead,
   addClientButton,
-  addUserPopUp,
+  addClientPopUp,
+  closePopUpButtonSelector,
+  popupOpenedClass,
 };
