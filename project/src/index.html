@@ -184,26 +184,29 @@
           <thead class="table__head">
             <tr class="table__row">
               <th class="table__header-item">
-                <button type="button" class="button table__control sort__id">
-                  <span class="accent-text">ID </span>
+                <button type="button" class="button table__control sort__id" data-sort-method-name="sortedById">
+                  ID
                   <div class="arrow-symbol"></div>
                 </button>
               </th>
               <th class="table__header-item">
-                <button aria-label="Сортировать по имени" type="button" class="button table__control sort__name">
+                <button aria-label="Сортировать по имени" type="button" class="button table__control sort__name"
+                  data-sort-method-name="sortedByName">
                   Фамилия Имя Отчество
                   <div class="arrow-symbol"></div>
                   <span class="accent-text small-text">А-Я</span>
                 </button>
               </th>
               <th class="table__header-item">
-                <button aria-label="Сортировать по имени" type="button" class="button table__control sort__created">
+                <button aria-label="Сортировать по имени" type="button" class="button table__control sort__created"
+                  data-sort-method-name="sortedByCreatedAt">
                   Дата и время создания
                   <div class="arrow-symbol"></div>
                 </button>
               </th>
               <th class="table__header-item">
-                <button aria-label="Сортировать по имени" type="button" class="button table__control sort__edited">
+                <button aria-label="Сортировать по имени" type="button" class="button table__control sort__edited"
+                  data-sort-method-name="sortedByUpdatedAt">
                   Последние изменения
                   <div class="arrow-symbol"></div>
                 </button>

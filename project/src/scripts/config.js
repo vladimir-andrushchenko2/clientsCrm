@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export const ContactTypeToBgImgClsConfig = {
   facebook: 'contact-tooltip-facebook-icon',
   email: 'contact-tooltip-email-icon',
@@ -6,3 +5,5 @@ export const ContactTypeToBgImgClsConfig = {
   tel: 'contact-tooltip-tel-icon',
   vk: 'contact-tooltip-vk-icon',
 };
+
+export const BASE_URL = 'http://localhost:3000';

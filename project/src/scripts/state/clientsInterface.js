@@ -51,11 +51,11 @@ class ClientsInterface {
     }));
   }
 
-  sortedByCreatedDate(isReversed) {
+  sortedByCreatedAt(isReversed) {
     return this._sortedDateProperty('createdAt', isReversed);
   }
 
-  sortedByUpdatedDate(isReversed) {
+  sortedByUpdatedAt(isReversed) {
     return this._sortedDateProperty('updatedAt', isReversed);
   }
 

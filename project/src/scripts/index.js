@@ -2,24 +2,49 @@
 import clients from './data/clients';
 import { clientsTable } from './constants';
 import { createClientRowElement } from './elementGenerators';
+import ClientsState from './state/clientsState';
+import api from './api';
+
+// const sortButtons = document.querySelectorAll('.table__control');
+const tableHead = document.querySelector('.table__head');
 
 class App {
-  constructor(table) {
-    this.table = table;
+  constructor(tableElement, sortControls) {
+    this.table = tableElement;
+    this.sortControls = sortControls;
+  }
+
+  setSortControlsEventListeners() {
+    this.sortControls.addEventListener('click', ({ target }) => {
+      if (target.classList.contains('table__control')) {
+        const { sortMethodName } = target.dataset;
+        const studentInterface = this.state.getClientsInterface();
+        this.clients = studentInterface[sortMethodName]().data();
+        this.render();
+      }
+    });
   }
 
   setEventListeners() {
-
+    this.setSortControlsEventListeners();
   }
 
-  getData() {
+  fetchData() {
+    this.state = new ClientsState(clients);
+    this.clients = this.state.getClientsInterface().data();
+  }
 
+  render() {
+    this.table.innerHTML = '';
+    this.table.append(...this.clients.map(createClientRowElement));
   }
 
   init() {
-    this.table.append(...clients.map(createClientRowElement));
+    this.fetchData();
+    this.setEventListeners();
   }
 }
 
-const app = new App(clientsTable);
+const app = new App(clientsTable, tableHead);
 app.init();
+app.render();

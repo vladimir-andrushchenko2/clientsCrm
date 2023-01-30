@@ -5,7 +5,7 @@ class ClientsState {
     this._clients = clients;
   }
 
-  getStudentsInterface() {
+  getClientsInterface() {
     return new ClientsInterface(this._clients.slice());
   }
 
