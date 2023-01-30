@@ -1,12 +1,8 @@
-/* eslint-disable quote-props */
 // import clients from './data/clients';
-import { clientsTable } from './constants';
+import { clientsTable, tableHead } from './constants';
 import { createClientRowElement } from './elementGenerators';
 import ClientsState from './state/clientsState';
 import api from './api';
-
-// const sortButtons = document.querySelectorAll('.table__control');
-const tableHead = document.querySelector('.table__head');
 
 class App {
   constructor(tableElement, sortControls) {
