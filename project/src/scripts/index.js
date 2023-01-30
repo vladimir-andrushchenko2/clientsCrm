@@ -1,5 +1,5 @@
 /* eslint-disable quote-props */
-import clients from './data/clients';
+// import clients from './data/clients';
 import { clientsTable } from './constants';
 import { createClientRowElement } from './elementGenerators';
 import ClientsState from './state/clientsState';
@@ -30,8 +30,11 @@ class App {
   }
 
   fetchData() {
-    this.state = new ClientsState(clients);
-    this.clients = this.state.getClientsInterface().data();
+    return api.getClients()
+      .then((clients) => {
+        this.state = new ClientsState(clients);
+        this.clients = this.state.getClientsInterface().data();
+      });
   }
 
   render() {
@@ -40,11 +43,12 @@ class App {
   }
 
   init() {
-    this.fetchData();
-    this.setEventListeners();
+    return this.fetchData().then(() => {
+      this.setEventListeners();
+      this.render();
+    });
   }
 }
 
 const app = new App(clientsTable, tableHead);
 app.init();
-app.render();
