@@ -2,6 +2,14 @@ import { clientRowTemplate, clientContactTooltipTemplate } from './constants';
 import { ContactTypeToBgImgClsConfig } from './config';
 import { formatDate } from './utils';
 
+const ContactTypeToBgImgClsConfig = {
+  facebook: 'contact-tooltip-facebook-icon',
+  email: 'contact-tooltip-email-icon',
+  other: 'contact-tooltip-other-icon',
+  tel: 'contact-tooltip-tel-icon',
+  vk: 'contact-tooltip-vk-icon',
+};
+
 export function makeShowMoreContactsIcon(numberOfAdditionalContact) {
   return (`<span tabindex=0 class="contact-show-more-contacts-btn">
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
