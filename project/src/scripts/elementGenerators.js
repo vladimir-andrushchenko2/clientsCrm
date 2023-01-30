@@ -1,5 +1,4 @@
 import { clientRowTemplate, clientContactTooltipTemplate } from './constants';
-import { ContactTypeToBgImgClsConfig } from './config';
 import { formatDate } from './utils';
 
 const ContactTypeToBgImgClsConfig = {
