@@ -59,15 +59,6 @@ class ClientsInterface {
     return this._sortedDateProperty('updatedAt', isReversed);
   }
 
-  searchByName(query) {
-    return new ClientsInterface(
-      this.data().filter(({ name, surname, lastName }) => [name, surname, lastName]
-        .some(
-          (item) => item.toLowerCase().startsWith(query.toLowerCase()),
-        )),
-    );
-  }
-
   data() {
     return this._clients.slice();
   }
