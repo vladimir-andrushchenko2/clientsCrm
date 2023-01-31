@@ -9,6 +9,10 @@ button {
   font-family: "Open Sans", sans-serif;
 }
 
+/* button > * {
+  pointer-events: none;
+} */
+
 .root {
   max-width: 1366px;
   margin: auto;

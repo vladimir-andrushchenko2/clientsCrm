@@ -1,4 +1,3 @@
-// import clients from './data/clients';
 import TableApp from './components/table';
 import {
   clientsTable,
