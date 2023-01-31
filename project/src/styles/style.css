@@ -387,6 +387,8 @@ button {
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
+  border: 0;
+  border-bottom: 1px solid #c8c5d1;
 }
 
 .popup__label {
@@ -399,11 +401,6 @@ button {
   font-size: 10px;
   line-height: 14px;
   color: #b0b0b0;
-}
-
-.popup__input {
-  border: 0;
-  border-bottom: 1px solid #c8c5d1;
 }
 
 .form__info {
