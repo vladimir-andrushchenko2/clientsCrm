@@ -10,6 +10,9 @@ const contactsContainerSelector = '.contacts';
 const addContactButtonSelector = '.form__add-contact-btn';
 const contactInputTemplate = document.querySelector('#contact-form-field');
 const openContactOptionsBtnClass = 'contact__open-options-btn';
+const addClientForm = document.querySelector('.popup_add-user');
+const userInfoInputSelector = '.popup__input';
+const userContactsInputSelector = '.contact__input';
 
 export {
   clientRowTemplate,
@@ -24,4 +27,7 @@ export {
   addContactButtonSelector,
   contactInputTemplate,
   openContactOptionsBtnClass,
+  addClientForm,
+  userInfoInputSelector,
+  userContactsInputSelector,
 };

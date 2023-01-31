@@ -1,4 +1,3 @@
-import TableApp from './components/table';
 import {
   clientsTable,
   tableHead,
@@ -10,8 +9,13 @@ import {
   addContactButtonSelector,
   contactInputTemplate,
   openContactOptionsBtnClass,
+  addClientForm,
+  userInfoInputSelector,
+  userContactsInputSelector,
 } from './constants';
 import Popup from './components/popup';
+import TableApp from './components/table';
+import UserForm from './components/userForm';
 
 const addUserPopUp = new Popup({
   openButton: addClientButton,
@@ -22,6 +26,15 @@ const addUserPopUp = new Popup({
   addContactButtonSelector,
   contactInputTemplate,
   openContactOptionsBtnClass,
+});
+
+const userForm = new UserForm({
+  formElement: addClientForm,
+  userInfoInputSelector,
+  userContactsInputSelector,
+  onSubmit(obj) {
+    console.log(obj);
+  },
 });
 
 const table = new TableApp({ tableElement: clientsTable, sortControls: tableHead, sortControlSelector: 'table__control' });
