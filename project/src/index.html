@@ -45,35 +45,7 @@
 
         <div class="popup__form-container popup__form-container_dark">
 
-          <ul class="contacts">
-            <li class="contact__item">
-
-              <div class="contact__select">
-                <button type="button" class="contact__btn contact__open-options-btn">
-                  Телефон
-                  <span class="menu-arrow"></span>
-                </button>
-
-                <ul class="contact__options contact__options_visible">
-                  <li class="contact-option-wrapper">
-                    <button class="contact__btn contact__option" type="button">Доп. телефон</button>
-                  </li>
-                  <li class="contact-option-wrapper">
-                    <button class="contact__btn contact__option" type="button">Email</button>
-                  </li>
-                  <li class="contact-option-wrapper">
-                    <button class="contact__btn contact__option" type="button">Vk</button>
-                  </li>
-                </ul>
-
-              </div>
-
-              <input class="contact__input" type="tel" placeholder="Введите данные контакта" required>
-
-              <button type="button" class="contact__clear-btn" aria-label="Очистить поле"></button>
-
-            </li>
-          </ul>
+          <ul class="contacts"></ul>
 
           <button type="button" class="form__add-contact-btn">Добавить контакт</button>
 
@@ -236,35 +208,6 @@
     </div>
   </main>
 
-  <template id="add-contact-field-template">
-    <li class="contact__wrapper">
-      <div class="contact__select">
-        <!-- Button for opening menu to choose contact type -->
-        <button type="button" class="contact__btn contact__open-options-btn">
-          <span class="contact__btn-text"></span>
-          <span class="menu-arrow"></span>
-        </button>
-
-        <!-- Menu with contact options -->
-        <ul class="contact__options contact__options_visible">
-          <li class="contact-option-wrapper">
-            <button class="contact__btn contact__option" type="button" data-type="tel">Доп. телефон</button>
-          </li>
-          <li class="contact-option-wrapper">
-            <button class="contact__btn contact__option" type="button" data-type="email">Email</button>
-          </li>
-          <li class="contact-option-wrapper">
-            <button class="contact__btn contact__option" type="button" data-type="vk">Vk</button>
-          </li>
-        </ul>
-      </div>
-
-      <input class="contact__input" type="text" placeholder="Введите данные контакта" required>
-
-      <button type="button" class="contact__clear-btn" aria-label="Очистить поле"></button>
-    </li>
-  </template>
-
   <template id="contact-table-row">
     <tr class="client table__row table__data-row">
       <td class="table__cell client-id muted-text">#</td>
@@ -303,6 +246,38 @@
       <button aria-label="Показать контакт" type="button" class="contact-show-tooltip-btn"></button>
       <span class="contact__tooltip tooltip"></span>
     </span>
+  </template>
+
+  <template id="contact-form-field">
+    <li class="contact__item">
+      <div class="contact__select">
+        <button type="button" class="contact__btn contact__open-options-btn">
+          Телефон
+        </button>
+
+        <ul class="contact__options">
+          <li class="contact-option-wrapper">
+            <button class="contact__btn contact__option" type="button" data-contact-type="tel">Телефон</button>
+          </li>
+          <li class="contact-option-wrapper">
+            <button class="contact__btn contact__option" type="button" data-contact-type="email">Email</button>
+          </li>
+          <li class="contact-option-wrapper">
+            <button class="contact__btn contact__option" type="button" data-contact-type="vk">Vk</button>
+          </li>
+          <li class="contact-option-wrapper">
+            <button class="contact__btn contact__option" type="button" data-contact-type="facebook">Facebook</button>
+          </li>
+          <li class="contact-option-wrapper">
+            <button class="contact__btn contact__option" type="button" data-contact-type="other">Other</button>
+          </li>
+        </ul>
+      </div>
+
+      <input class="contact__input" type="tel" placeholder="Введите данные контакта" required>
+
+      <button type="button" class="contact__clear-btn" aria-label="Очистить поле"></button>
+    </li>
   </template>
 
   <script type="module" src="./scripts/index.js"></script>

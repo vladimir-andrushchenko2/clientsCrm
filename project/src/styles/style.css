@@ -443,6 +443,8 @@ button {
   line-height: 16px;
   text-align: left;
   text-overflow: ellipsis;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
 
 .contact__open-options-btn {
@@ -452,7 +454,11 @@ button {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  position: relative;
+  /* position: relative; */
+}
+
+.contact__btn:hover {
+  background-color: #a594d6;
 }
 
 .contact__options {
@@ -460,6 +466,7 @@ button {
   position: absolute;
   list-style: none;
   border-bottom: 1px solid #c8c5d1;
+  z-index: 1;
 }
 
 .contact__options_visible {

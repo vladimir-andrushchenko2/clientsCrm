@@ -4,13 +4,28 @@ export default class Popup {
     popUp,
     closeButtonSelector,
     popupOpenedClass,
+    contactsContainerSelector,
+    addContactButtonSelector,
+    contactInputTemplate,
+    openContactOptionsBtnClass,
   }) {
     this.openButton = openButton;
     this.popUp = popUp;
-    this.closeButtonSelector = closeButtonSelector;
+
+    this.closeButton = this.popUp.querySelector(closeButtonSelector);
     this.popupOpenedClass = popupOpenedClass;
 
+    this.contactsContainer = this.popUp.querySelector(contactsContainerSelector);
+    this.addContactButton = this.popUp.querySelector(addContactButtonSelector);
+    this.contactInputTemplate = contactInputTemplate;
+
+    this.openContactOptionsBtnClass = openContactOptionsBtnClass;
+
     this.setEventListeners();
+  }
+
+  makeContactField() {
+    return this.contactInputTemplate.content.cloneNode(true);
   }
 
   setEventListeners() {
@@ -18,8 +33,20 @@ export default class Popup {
       this.popUp.classList.add(this.popupOpenedClass);
     });
 
-    this.popUp.querySelector(this.closeButtonSelector).addEventListener('click', () => {
+    this.closeButton.addEventListener('click', () => {
       this.popUp.classList.remove(this.popupOpenedClass);
+    });
+
+    this.addContactButton.addEventListener('click', () => {
+      this.contactsContainer.append(this.makeContactField());
+    });
+
+    this.contactsContainer.addEventListener('click', ({ target }) => {
+      if (target.classList.contains(this.openContactOptionsBtnClass)) {
+        const parent = target.closest('.contact__item');
+        const contactOptionMenu = parent.querySelector('.contact__options');
+        contactOptionMenu.classList.toggle('contact__options_visible');
+      }
     });
   }
 }
