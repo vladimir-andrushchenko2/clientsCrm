@@ -1,6 +1,4 @@
 import { createClientRowElement } from '../elementGenerators';
-import ClientsState from '../state/clientsState';
-import api from '../api';
 
 // tableElements is there created rows will be appended to
 // sortConrols is some parent element that has buttons with class sortControlSelector
@@ -8,7 +6,9 @@ import api from '../api';
 // data-attribute with the name of sorting method
 // which will be called on click
 export default class TableApp {
-  constructor({ tableElement, sortControls, sortControlSelector }) {
+  constructor({
+    tableElement, sortControls, sortControlSelector,
+  }) {
     this.table = tableElement;
     this.sortControls = sortControls;
     this.sortControlSelector = sortControlSelector;
@@ -18,7 +18,7 @@ export default class TableApp {
     this.sortControls.addEventListener('click', ({ target }) => {
       if (target.classList.contains(this.sortControlSelector)) {
         const { sortMethodName } = target.dataset;
-        this.clients = this.state.getSortedBy(sortMethodName);
+        this.currentSortMethodName = sortMethodName;
         this.render();
       }
     });
@@ -28,23 +28,23 @@ export default class TableApp {
     this.setSortControlsEventListeners();
   }
 
-  fetchData() {
-    return api.getClients()
-      .then((clients) => {
-        this.state = new ClientsState(clients);
-        this.clients = this.state.getClients();
-      });
+  setState(state) {
+    this.state = state;
   }
 
   render() {
     this.table.innerHTML = '';
-    this.table.append(...this.clients.map(createClientRowElement));
+
+    const displayedClients = this.currentSortMethodName
+      ? this.state.getClientsSortedBy(this.currentSortMethodName)
+      : this.state.getClients();
+
+    this.table.append(...displayedClients.map(createClientRowElement));
   }
 
-  init() {
-    return this.fetchData().then(() => {
-      this.setEventListeners();
-      this.render();
-    });
+  init(state) {
+    this.setState(state);
+    this.setEventListeners();
+    this.render();
   }
 }

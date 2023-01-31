@@ -24,6 +24,10 @@ export default class Popup {
     this.setEventListeners();
   }
 
+  close() {
+    this.popUp.classList.remove(this.popupOpenedClass);
+  }
+
   makeContactField() {
     return this.contactInputTemplate.content.cloneNode(true);
   }
@@ -34,7 +38,7 @@ export default class Popup {
     });
 
     this.closeButton.addEventListener('click', () => {
-      this.popUp.classList.remove(this.popupOpenedClass);
+      this.close();
     });
 
     this.addContactButton.addEventListener('click', () => {

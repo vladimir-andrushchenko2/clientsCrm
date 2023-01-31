@@ -31,9 +31,7 @@ function sortedByUpdatedAt(clients) {
 }
 
 class ClientsState {
-  constructor(clients) {
-    this._clients = clients;
-
+  constructor() {
     this._modifiers = {
       sortedById,
       sortedByName,
@@ -42,11 +40,15 @@ class ClientsState {
     };
   }
 
+  setClients(clients) {
+    this._clients = clients;
+  }
+
   getClients() {
     return copyShallow(this._clients);
   }
 
-  getSortedBy(sortingMethod) {
+  getClientsSortedBy(sortingMethod) {
     return this._modifiers[sortingMethod](this._clients);
   }
 

@@ -39,7 +39,7 @@ export default class UserForm {
     });
 
     userContactInputs.forEach(({ name, value }) => {
-      output.contacts.push({ name, value });
+      output.contacts.push({ type: name, value });
     });
 
     return output;
