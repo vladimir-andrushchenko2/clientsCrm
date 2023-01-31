@@ -5,7 +5,7 @@ import api from '../api';
 // tableElements is there created rows will be appended to
 // sortConrols is some parent element that has buttons with class sortControlSelector
 // sort button have (data-sort-method-name="sortedById")
-// data-attribute with the name of sorting method of getClientsInterface
+// data-attribute with the name of sorting method
 // which will be called on click
 export default class TableApp {
   constructor({ tableElement, sortControls, sortControlSelector }) {
@@ -18,8 +18,7 @@ export default class TableApp {
     this.sortControls.addEventListener('click', ({ target }) => {
       if (target.classList.contains(this.sortControlSelector)) {
         const { sortMethodName } = target.dataset;
-        const studentInterface = this.state.getClientsInterface();
-        this.clients = studentInterface[sortMethodName]().data();
+        this.clients = this.state.getSortedBy(sortMethodName);
         this.render();
       }
     });
@@ -33,7 +32,7 @@ export default class TableApp {
     return api.getClients()
       .then((clients) => {
         this.state = new ClientsState(clients);
-        this.clients = this.state.getClientsInterface().data();
+        this.clients = this.state.getClients();
       });
   }
 

@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 function formatDate(dateString) {
   let [date, time] = dateString.split('T');
   // first 5 chars is hours, semicolon, minutes
@@ -16,4 +15,18 @@ function isValidDate(d) {
   return d instanceof Date && !isNaN(d);
 }
 
-export { formatDate, getFullName, isValidDate };
+function copyShallow(array) {
+  return Array.from(array);
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export {
+  formatDate,
+  getFullName,
+  isValidDate,
+  copyShallow,
+  capitalizeFirstLetter,
+};
