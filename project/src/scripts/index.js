@@ -12,6 +12,8 @@ import {
   addClientForm,
   userInfoInputSelector,
   userContactsInputSelector,
+  userErrorDisplaySelector,
+  userErrorDisplayOpenedClass,
 } from './constants';
 import Popup from './components/popup';
 import TableApp from './components/table';
@@ -44,15 +46,17 @@ const userForm = new UserForm({
   formElement: addClientForm,
   userInfoInputSelector,
   userContactsInputSelector,
+  userErrorDisplaySelector,
+  userErrorDisplayOpenedClass,
+  // catch error handling is done inside class
   onSubmit(formData) {
-    api.postClient(formData)
+    return api.postClient(formData)
       .then(() => api.getClients())
       .then((clients) => {
         clientsState.setClients(clients);
         table.render();
         addUserPopUp.close();
-      })
-      .catch((err) => console.log(err));
+      });
   },
 });
 

@@ -68,7 +68,7 @@
     <div class="popup__contents-container">
       <button aria-label="закрыть окно" type="button" class="popup__close-btn"></button>
 
-      <form class="popup__form form">
+      <form class="popup__form form" novalidate>
 
         <div class="popup__form-container">
           <div class="form__info">
@@ -100,6 +100,7 @@
         </div>
 
         <div class="popup__form-container">
+          <div class="popup__error-display"></div>
           <button type="submit" class="form__submit-btn">
             <span class="submit-loading-indicator"></span>
             Сохранить

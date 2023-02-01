@@ -4,11 +4,15 @@ export default class UserForm {
     userInfoInputSelector,
     userContactsInputSelector,
     onSubmit,
+    userErrorDisplaySelector,
+    userErrorDisplayOpenedClass,
   }) {
     this._form = formElement;
     this._userInfoInputSelector = userInfoInputSelector;
     this._userContactsInputSelector = userContactsInputSelector;
     this._onSubmit = onSubmit;
+    this._errorDisplay = document.querySelector(userErrorDisplaySelector);
+    this._errorDisplayOpenedClass = userErrorDisplayOpenedClass;
 
     this.submitHandler = this._handleSubmit.bind(this);
 
@@ -22,7 +26,12 @@ export default class UserForm {
   _handleSubmit(event) {
     event.preventDefault();
 
-    this._onSubmit(this.getInputs());
+    this._onSubmit(this.getInputs())
+      .catch((err) => {
+        this._errorDisplay.classList.add(this._errorDisplayOpenedClass);
+        const errorMsg = err.errors.map(({ message }) => message).join('\n');
+        this._errorDisplay.textContent = errorMsg;
+      });
   }
 
   getInputs() {

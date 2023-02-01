@@ -407,6 +407,23 @@ button > * {
   color: #b0b0b0;
 }
 
+.popup__error-display {
+  display: none;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 14px;
+  max-width: 255px;
+  color: #f06a4d;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+  white-space: pre;
+}
+
+.popup__error-display_opened {
+  display: block;
+}
+
 .form__info {
   display: flex;
   align-items: flex-end;

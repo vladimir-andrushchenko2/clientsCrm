@@ -13,6 +13,8 @@ const openContactOptionsBtnClass = 'contact__open-options-btn';
 const addClientForm = document.querySelector('.popup_add-user');
 const userInfoInputSelector = '.popup__input';
 const userContactsInputSelector = '.contact__input';
+const userErrorDisplaySelector = '.popup__error-display';
+const userErrorDisplayOpenedClass = 'popup__error-display_opened';
 
 export {
   clientRowTemplate,
@@ -30,4 +32,6 @@ export {
   addClientForm,
   userInfoInputSelector,
   userContactsInputSelector,
+  userErrorDisplaySelector,
+  userErrorDisplayOpenedClass,
 };
