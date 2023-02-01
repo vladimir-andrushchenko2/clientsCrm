@@ -30,16 +30,14 @@ function sortedByUpdatedAt(clients) {
   return sortedDateProperty('updatedAt', clients);
 }
 
-class ClientsState {
-  constructor() {
-    this._modifiers = {
-      sortedById,
-      sortedByName,
-      sortedByCreatedAt,
-      sortedByUpdatedAt,
-    };
-  }
+const modifiers = {
+  sortedById,
+  sortedByName,
+  sortedByCreatedAt,
+  sortedByUpdatedAt,
+};
 
+class ClientsState {
   setClients(clients) {
     this._clients = clients;
   }
@@ -49,7 +47,7 @@ class ClientsState {
   }
 
   getClientsSortedBy(sortingMethod) {
-    return this._modifiers[sortingMethod](this._clients);
+    return modifiers[sortingMethod](this._clients);
   }
 
   addClient(client) {
