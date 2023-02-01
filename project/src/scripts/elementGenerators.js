@@ -1,5 +1,7 @@
-import { clientRowTemplate, clientContactTooltipTemplate } from './constants';
+import constants from './constants';
 import { formatDate } from './utils';
+
+const { clientRowTemplate, clientContactTooltipTemplate } = constants;
 
 const ContactTypeToBgImgClsConfig = {
   facebook: 'contact-tooltip-facebook-icon',

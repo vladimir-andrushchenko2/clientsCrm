@@ -33,7 +33,7 @@ const userErrorDisplayOpenedClass = 'popup__error-display_opened';
 
 const loadIndicatorSelectorAndVisibleClass = ['.submit-loading-indicator', 'submit-loading-indicator_visible'];
 
-export {
+export default {
   clientRowTemplate,
   clientContactTooltipTemplate,
   clientsTable,

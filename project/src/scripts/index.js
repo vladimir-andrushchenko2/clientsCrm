@@ -1,27 +1,4 @@
-import {
-  clientsTable,
-  tableHead,
-  addClientButton,
-  addClientPopUp,
-  closePopUpButtonSelector,
-  popupOpenedClass,
-  contactsContainerSelector,
-  addContactButtonSelector,
-  contactInputTemplate,
-  openContactOptionsBtnClass,
-  addClientForm,
-  userInfoInputSelector,
-  userContactsInputSelector,
-  userErrorDisplaySelector,
-  userErrorDisplayOpenedClass,
-  loadIndicatorSelectorAndVisibleClass,
-  editClientPopUp,
-  editClientForm,
-  clientEditBtnClass,
-  clientDeleteBtnClass,
-  sortControlSelector,
-  editClientSubtitle,
-} from './constants';
+import constants from './constants';
 import Popup from './components/popup';
 import TableApp from './components/table';
 import UserForm from './components/userForm';
@@ -29,55 +6,36 @@ import api from './api';
 import clientsState from './state/clientsState';
 
 const editUserPopUp = new Popup({
-  popUp: editClientPopUp,
-  closeButtonSelector: closePopUpButtonSelector,
-  popupOpenedClass,
-  contactsContainerSelector,
-  addContactButtonSelector,
-  contactInputTemplate,
-  openContactOptionsBtnClass,
-  userErrorDisplaySelector,
-  userErrorDisplayOpenedClass,
-  loadIndicatorSelectorAndVisibleClass,
+  popUp: constants.editClientPopUp,
+  closeButtonSelector: constants.closePopUpButtonSelector,
+  ...constants,
 });
 
 const table = new TableApp({
-  tableElement: clientsTable,
-  tableHead,
-  sortControlSelector,
-  clientEditBtnClass,
-  clientDeleteBtnClass,
+  tableElement: constants.clientsTable,
   onEditAction(clientId) {
     clientsState.selectClient(clientId);
-    editClientSubtitle.textContent = `ID: ${clientId}`;
+    constants.editClientSubtitle.textContent = `ID: ${clientId}`;
     editUserPopUp.open();
   },
   onDeleteAction(clientId) {
     console.log('Delete Action', clientId);
   },
+  ...constants,
 });
 
 const addUserPopUp = new Popup({
-  popUp: addClientPopUp,
-  closeButtonSelector: closePopUpButtonSelector,
-  popupOpenedClass,
-  contactsContainerSelector,
-  addContactButtonSelector,
-  contactInputTemplate,
-  openContactOptionsBtnClass,
-  userErrorDisplaySelector,
-  userErrorDisplayOpenedClass,
-  loadIndicatorSelectorAndVisibleClass,
+  popUp: constants.addClientPopUp,
+  closeButtonSelector: constants.closePopUpButtonSelector,
+  ...constants,
 });
 
-addClientButton.addEventListener('click', () => {
+constants.addClientButton.addEventListener('click', () => {
   addUserPopUp.open();
 });
 
 const addUserForm = new UserForm({
-  formElement: addClientForm,
-  userInfoInputSelector,
-  userContactsInputSelector,
+  formElement: constants.addClientForm,
   onSubmit(formData) {
     addUserPopUp.hideError();
     addUserPopUp.indicateLoading();
@@ -89,7 +47,7 @@ const addUserForm = new UserForm({
         table.render();
 
         addUserPopUp.close();
-        addClientForm.reset();
+        constants.addClientForm.reset();
       })
       .catch((error) => {
         const errorMsg = error.errors.map(({ message }) => message).join('\n');
@@ -99,6 +57,7 @@ const addUserForm = new UserForm({
         addUserPopUp.stopLoadingIndication();
       });
   },
+  ...constants,
 });
 
 api.getClients()
