@@ -55,4 +55,6 @@ class ClientsState {
   }
 }
 
-export default ClientsState;
+const clientsState = new ClientsState();
+
+export default clientsState;

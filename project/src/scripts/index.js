@@ -20,9 +20,7 @@ import Popup from './components/popup';
 import TableApp from './components/table';
 import UserForm from './components/userForm';
 import api from './api';
-import ClientsState from './state/clientsState';
-
-const clientsState = new ClientsState();
+import clientsState from './state/clientsState';
 
 // use set state to add state to table and it will keep ref to it
 // as it stored as ref it renders current state
