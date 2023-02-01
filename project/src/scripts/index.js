@@ -14,6 +14,7 @@ import {
   userContactsInputSelector,
   userErrorDisplaySelector,
   userErrorDisplayOpenedClass,
+  loadIndicatorSelectorAndVisibleClass,
 } from './constants';
 import Popup from './components/popup';
 import TableApp from './components/table';
@@ -48,6 +49,7 @@ const userForm = new UserForm({
   userContactsInputSelector,
   userErrorDisplaySelector,
   userErrorDisplayOpenedClass,
+  loadIndicatorSelectorAndVisibleClass,
   // catch error handling is done inside class
   onSubmit(formData) {
     return api.postClient(formData)

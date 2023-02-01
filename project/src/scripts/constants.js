@@ -15,6 +15,7 @@ const userInfoInputSelector = '.popup__input';
 const userContactsInputSelector = '.contact__input';
 const userErrorDisplaySelector = '.popup__error-display';
 const userErrorDisplayOpenedClass = 'popup__error-display_opened';
+const loadIndicatorSelectorAndVisibleClass = ['.submit-loading-indicator', 'submit-loading-indicator_visible'];
 
 export {
   clientRowTemplate,
@@ -34,4 +35,5 @@ export {
   userContactsInputSelector,
   userErrorDisplaySelector,
   userErrorDisplayOpenedClass,
+  loadIndicatorSelectorAndVisibleClass,
 };

@@ -553,6 +553,16 @@ button > * {
   border: 0;
 }
 
+@keyframes rotateInfinite {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .submit-loading-indicator {
   display: inline-block;
   background-image: url("../images/ui/submit-loading-indicator.svg");
@@ -561,6 +571,12 @@ button > * {
   width: 16px;
   height: 16px;
   margin-right: 7px;
+  visibility: hidden;
+}
+
+.submit-loading-indicator_visible {
+  animation: rotateInfinite 1s infinite linear;
+  visibility: visible;
 }
 
 .form__delete-btn {
