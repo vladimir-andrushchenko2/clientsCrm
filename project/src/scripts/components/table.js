@@ -7,15 +7,25 @@ import { createClientRowElement } from '../elementGenerators';
 // which will be called on click
 export default class TableApp {
   constructor({
-    tableElement, sortControls, sortControlSelector,
+    tableElement,
+    tableHead,
+    sortControlSelector,
+    onEditAction,
+    onDeleteAction,
+    clientEditBtnClass,
+    clientDeleteBtnClass,
   }) {
     this.table = tableElement;
-    this.sortControls = sortControls;
+    this.tableHead = tableHead;
     this.sortControlSelector = sortControlSelector;
+    this.onEditAction = onEditAction;
+    this.onDeleteAction = onDeleteAction;
+    this.clientEditBtnClass = clientEditBtnClass;
+    this.clientDeleteBtnClass = clientDeleteBtnClass;
   }
 
   setSortControlsEventListeners() {
-    this.sortControls.addEventListener('click', ({ target }) => {
+    this.tableHead.addEventListener('click', ({ target }) => {
       if (target.classList.contains(this.sortControlSelector)) {
         const { sortMethodName } = target.dataset;
         this.currentSortMethodName = sortMethodName;
@@ -24,8 +34,18 @@ export default class TableApp {
     });
   }
 
+  setActionsEventListeners() {
+    this.table.addEventListener('click', ({ target }) => {
+      if (target.classList.contains(this.clientEditBtnClass)) {
+        const id = target.closest('.table__row').querySelector('.client-id').textContent;
+        this.onEditAction(id);
+      }
+    });
+  }
+
   setEventListeners() {
     this.setSortControlsEventListeners();
+    this.setActionsEventListeners();
   }
 
   setState(state) {
