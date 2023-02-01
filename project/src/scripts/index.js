@@ -7,7 +7,11 @@ import clientsState from './state/clientsState';
 
 const editUserPopUp = new Popup({
   popUp: constants.editClientPopUp,
-  closeButtonSelector: constants.closePopUpButtonSelector,
+  ...constants,
+});
+
+const deleteUserPopUp = new Popup({
+  popUp: constants.deleteClientPopup,
   ...constants,
 });
 
@@ -19,14 +23,14 @@ const table = new TableApp({
     editUserPopUp.open();
   },
   onDeleteAction(clientId) {
-    console.log('Delete Action', clientId);
+    clientsState.selectClient(clientId);
+    deleteUserPopUp.open();
   },
   ...constants,
 });
 
 const addUserPopUp = new Popup({
   popUp: constants.addClientPopUp,
-  closeButtonSelector: constants.closePopUpButtonSelector,
   ...constants,
 });
 

@@ -40,6 +40,11 @@ export default class TableApp {
         const id = target.closest('.table__row').querySelector('.client-id').textContent;
         this.onEditAction(id);
       }
+
+      if (target.classList.contains(this.clientDeleteBtnClass)) {
+        const id = target.closest('.table__row').querySelector('.client-id').textContent;
+        this.onDeleteAction(id);
+      }
     });
   }
 

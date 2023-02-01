@@ -70,16 +70,18 @@ export default class Popup {
       this.close();
     });
 
-    this.addContactButton.addEventListener('click', () => {
-      this.contactsContainer.append(this.makeContactField());
-    });
+    if (this.addContactButton && this.addContactButtonSelector) {
+      this.addContactButton.addEventListener('click', () => {
+        this.contactsContainer.append(this.makeContactField());
+      });
 
-    this.contactsContainer.addEventListener('click', ({ target }) => {
-      if (target.classList.contains(this.openContactOptionsBtnClass)) {
-        const parent = target.closest('.contact__item');
-        const contactOptionMenu = parent.querySelector('.contact__options');
-        contactOptionMenu.classList.toggle('contact__options_visible');
-      }
-    });
+      this.contactsContainer.addEventListener('click', ({ target }) => {
+        if (target.classList.contains(this.openContactOptionsBtnClass)) {
+          const parent = target.closest('.contact__item');
+          const contactOptionMenu = parent.querySelector('.contact__options');
+          contactOptionMenu.classList.toggle('contact__options_visible');
+        }
+      });
+    }
   }
 }

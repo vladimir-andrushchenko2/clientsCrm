@@ -14,7 +14,7 @@ const addClientPopUp = document.querySelector('.popup_add-user');
 const editClientPopUp = document.querySelector('.popup_edit-user');
 const editClientSubtitle = editClientPopUp.querySelector('.popup__subtitle');
 
-const closePopUpButtonSelector = '.popup__close-btn';
+const closeButtonSelector = '.popup__close-btn';
 const popupOpenedClass = 'popup_opened';
 
 const contactsContainerSelector = '.contacts';
@@ -23,7 +23,7 @@ const contactInputTemplate = document.querySelector('#contact-form-field');
 const openContactOptionsBtnClass = 'contact__open-options-btn';
 
 const addClientForm = document.querySelector('.form-add-client');
-const editClientForm = document.querySelector('.from-edit-user');
+const editClientForm = document.querySelector('.form-edit-user');
 
 const userInfoInputSelector = '.popup__input';
 const userContactsInputSelector = '.contact__input';
@@ -33,6 +33,9 @@ const userErrorDisplayOpenedClass = 'popup__error-display_opened';
 
 const loadIndicatorSelectorAndVisibleClass = ['.submit-loading-indicator', 'submit-loading-indicator_visible'];
 
+const deleteClientPopup = document.querySelector('.popup_delete-user');
+const deleteClientForm = document.querySelector('.form-delete-client');
+
 export default {
   clientRowTemplate,
   clientContactTooltipTemplate,
@@ -40,7 +43,7 @@ export default {
   tableHead,
   addClientButton,
   addClientPopUp,
-  closePopUpButtonSelector,
+  closeButtonSelector,
   popupOpenedClass,
   contactsContainerSelector,
   addContactButtonSelector,
@@ -58,4 +61,6 @@ export default {
   clientDeleteBtnClass,
   sortControlSelector,
   editClientSubtitle,
+  deleteClientPopup,
+  deleteClientForm,
 };
