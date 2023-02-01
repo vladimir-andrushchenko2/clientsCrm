@@ -41,6 +41,10 @@ const addUserPopUp = new Popup({
   openContactOptionsBtnClass,
 });
 
+addClientButton.addEventListener('click', () => {
+  addUserPopUp.open();
+});
+
 const userForm = new UserForm({
   formElement: addClientForm,
   userInfoInputSelector,

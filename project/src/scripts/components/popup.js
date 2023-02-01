@@ -28,15 +28,15 @@ export default class Popup {
     this.popUp.classList.remove(this.popupOpenedClass);
   }
 
+  open() {
+    this.popUp.classList.add(this.popupOpenedClass);
+  }
+
   makeContactField() {
     return this.contactInputTemplate.content.cloneNode(true);
   }
 
   setEventListeners() {
-    this.openButton.addEventListener('click', () => {
-      this.popUp.classList.add(this.popupOpenedClass);
-    });
-
     this.closeButton.addEventListener('click', () => {
       this.close();
     });
