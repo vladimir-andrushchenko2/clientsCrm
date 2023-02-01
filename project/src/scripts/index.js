@@ -31,7 +31,6 @@ const table = new TableApp({
 });
 
 const addUserPopUp = new Popup({
-  openButton: addClientButton,
   popUp: addClientPopUp,
   closeButtonSelector: closePopUpButtonSelector,
   popupOpenedClass,
@@ -39,6 +38,9 @@ const addUserPopUp = new Popup({
   addContactButtonSelector,
   contactInputTemplate,
   openContactOptionsBtnClass,
+  userErrorDisplaySelector,
+  userErrorDisplayOpenedClass,
+  loadIndicatorSelectorAndVisibleClass,
 });
 
 addClientButton.addEventListener('click', () => {
@@ -49,17 +51,25 @@ const userForm = new UserForm({
   formElement: addClientForm,
   userInfoInputSelector,
   userContactsInputSelector,
-  userErrorDisplaySelector,
-  userErrorDisplayOpenedClass,
-  loadIndicatorSelectorAndVisibleClass,
-  // catch error handling is done inside class
   onSubmit(formData) {
+    addUserPopUp.hideError();
+    addUserPopUp.indicateLoading();
+
     return api.postClient(formData)
       .then(() => api.getClients())
       .then((clients) => {
         clientsState.setClients(clients);
         table.render();
+
         addUserPopUp.close();
+        addClientForm.reset();
+      })
+      .catch((error) => {
+        const errorMsg = error.errors.map(({ message }) => message).join('\n');
+        addUserPopUp.displayError(errorMsg);
+      })
+      .finally(() => {
+        addUserPopUp.stopLoadingIndication();
       });
   },
 });
@@ -67,6 +77,10 @@ const userForm = new UserForm({
 api.getClients()
   .then((clients) => {
     clientsState.setClients(clients);
+
+    // for testing
+    clientsState.selectClient(clients[0].id);
+
     table.init(clientsState);
   })
   .catch((err) => console.log(err));

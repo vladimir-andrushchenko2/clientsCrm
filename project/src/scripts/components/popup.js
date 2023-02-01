@@ -7,6 +7,9 @@ export default class Popup {
     addContactButtonSelector,
     contactInputTemplate,
     openContactOptionsBtnClass,
+    userErrorDisplaySelector,
+    userErrorDisplayOpenedClass,
+    loadIndicatorSelectorAndVisibleClass: [loadIndicatorSelector, loadIndicatoVisibleClass],
   }) {
     this.popUp = popUp;
 
@@ -16,6 +19,12 @@ export default class Popup {
     this.contactsContainer = this.popUp.querySelector(contactsContainerSelector);
     this.addContactButton = this.popUp.querySelector(addContactButtonSelector);
     this.contactInputTemplate = contactInputTemplate;
+
+    this._errorDisplay = document.querySelector(userErrorDisplaySelector);
+    this._errorDisplayOpenedClass = userErrorDisplayOpenedClass;
+
+    this._loadIndicator = this.popUp.querySelector(loadIndicatorSelector);
+    this._loadIndicatorVisibleClass = loadIndicatoVisibleClass;
 
     this.openContactOptionsBtnClass = openContactOptionsBtnClass;
 
@@ -28,6 +37,28 @@ export default class Popup {
 
   open() {
     this.popUp.classList.add(this.popupOpenedClass);
+  }
+
+  clearContactFields() {
+    this.contactsContainer.innerHTML = '';
+  }
+
+  displayError(errorText) {
+    this._errorDisplay.classList.add(this._errorDisplayOpenedClass);
+
+    this._errorDisplay.textContent = errorText;
+  }
+
+  hideError() {
+    this._errorDisplay.classList.remove(this._errorDisplayOpenedClass);
+  }
+
+  indicateLoading() {
+    this._loadIndicator.classList.add(this._loadIndicatorVisibleClass);
+  }
+
+  stopLoadingIndication() {
+    this._loadIndicator.classList.remove(this._loadIndicatorVisibleClass);
   }
 
   makeContactField() {

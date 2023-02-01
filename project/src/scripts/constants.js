@@ -6,6 +6,8 @@ const tableHead = document.querySelector('.table__head');
 const addClientButton = document.querySelector('.add-client-btn');
 const addClientPopUp = document.querySelector('.popup_add-user');
 
+const editClientPopUp = document.querySelector('.popup_edit-user');
+
 const closePopUpButtonSelector = '.popup__close-btn';
 const popupOpenedClass = 'popup_opened';
 
@@ -14,7 +16,7 @@ const addContactButtonSelector = '.form__add-contact-btn';
 const contactInputTemplate = document.querySelector('#contact-form-field');
 const openContactOptionsBtnClass = 'contact__open-options-btn';
 
-const addClientForm = document.querySelector('.popup_add-user');
+const addClientForm = document.querySelector('.form-add-client');
 
 const userInfoInputSelector = '.popup__input';
 const userContactsInputSelector = '.contact__input';
@@ -43,4 +45,5 @@ export {
   userErrorDisplaySelector,
   userErrorDisplayOpenedClass,
   loadIndicatorSelectorAndVisibleClass,
+  editClientPopUp,
 };
