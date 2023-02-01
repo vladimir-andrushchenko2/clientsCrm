@@ -46,6 +46,28 @@ class ClientsState {
     return copyShallow(this._clients);
   }
 
+  selectClient(id) {
+    if (!this._clients) {
+      throw new Error('clients havent been set, use setClients');
+    }
+
+    const selectedClient = this._clients.find((client) => client.id === id);
+
+    if (!selectedClient) {
+      throw new Error(`client with id: ${id} is doesnt exist in state`);
+    }
+
+    this._seletedClient = selectedClient;
+  }
+
+  getSelectedClient() {
+    if (!this._seletedClient) {
+      throw new Error('no selected student, when calling clientsState.getSelectedClient();');
+    }
+
+    return this._seletedClient;
+  }
+
   getClientsSortedBy(sortingMethod) {
     return modifiers[sortingMethod](this._clients);
   }
