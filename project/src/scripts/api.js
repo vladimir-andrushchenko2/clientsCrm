@@ -38,6 +38,12 @@ class Api {
     return this.makeRequest({ path });
   }
 
+  getClient(clientId) {
+    const path = `/api/clients/${clientId}`;
+
+    return this.makeRequest({ path });
+  }
+
   postClient({
     name, surname, lastNane, contacts,
   }) {
