@@ -1,6 +1,5 @@
 export default class Popup {
   constructor({
-    openButton,
     popUp,
     closeButtonSelector,
     popupOpenedClass,
@@ -9,7 +8,6 @@ export default class Popup {
     contactInputTemplate,
     openContactOptionsBtnClass,
   }) {
-    this.openButton = openButton;
     this.popUp = popUp;
 
     this.closeButton = this.popUp.querySelector(closeButtonSelector);
