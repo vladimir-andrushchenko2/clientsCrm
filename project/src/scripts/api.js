@@ -72,7 +72,7 @@ class Api {
   }
 
   deleteClient(clientId) {
-    const path = `/api/client/${clientId}`;
+    const path = `/api/clients/${clientId}`;
     return this.makeRequest({
       path,
       method: 'DELETE',

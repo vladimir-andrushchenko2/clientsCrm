@@ -39,6 +39,22 @@ const table = new TableApp({
   ...constants,
 });
 
+const deleteUserForm = new UserForm({
+  formElement: constants.deleteClientForm,
+  onSubmit() {
+    const { id } = clientsState.getSelectedClient();
+    const apiCallPromise = api.deleteClient(id);
+
+    onSubmitWrapper({
+      popUp: deleteUserPopUp,
+      form: deleteUserForm,
+      table,
+      apiCallResult: apiCallPromise,
+    });
+  },
+  ...constants,
+});
+
 const editUserForm = new UserForm({
   formElement: constants.editClientForm,
   onSubmit(formData) {
