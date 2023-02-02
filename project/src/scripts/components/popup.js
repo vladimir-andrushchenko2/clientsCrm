@@ -70,7 +70,7 @@ export default class Popup {
       this.close();
     });
 
-    if (this.addContactButton && this.addContactButtonSelector) {
+    if (this.addContactButton) {
       this.addContactButton.addEventListener('click', () => {
         this.contactsContainer.append(this.makeContactField());
       });
