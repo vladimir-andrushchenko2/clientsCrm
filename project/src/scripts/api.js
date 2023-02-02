@@ -45,26 +45,26 @@ class Api {
   }
 
   postClient({
-    name, surname, lastNane, contacts,
+    name, surname, lastName, contacts,
   }) {
     const path = '/api/clients';
     return this.makeRequest({
       path,
       body: {
-        name, surname, lastNane, contacts,
+        name, surname, lastName, contacts,
       },
       method: 'POST',
     });
   }
 
   patchClient(clientId, {
-    name, surname, lastNane, contacts,
+    name, surname, lastName, contacts,
   }) {
     const path = `/api/client/${clientId}`;
     return this.makeRequest({
       path,
       body: {
-        name, surname, lastNane, contacts,
+        name, surname, lastName, contacts,
       },
       method: 'PATCH',
     });
