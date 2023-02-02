@@ -4,7 +4,7 @@ import TableApp from './components/table';
 import UserForm from './components/userForm';
 import api from './api';
 import clientsState from './state/clientsState';
-import fillForm from './elementHandlers/fillForm';
+import { fillForm } from './elementHandlers/fillForm';
 import onSubmitWrapper from './wrappers/onSubmitWrapper';
 
 const editUserPopUp = new Popup({

@@ -10,7 +10,7 @@ function fillContact({
 }) {
   const input = contactElement.querySelector(userContactsInputSelector);
   input.value = value;
-  input.name = value;
+  input.name = type;
 
   if (type === 'email') {
     input.type = 'email';
@@ -51,4 +51,4 @@ function fillForm({
   });
 }
 
-export default fillForm;
+export { fillForm, fillContact };

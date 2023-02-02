@@ -20,7 +20,12 @@ const popupOpenedClass = 'popup_opened';
 const contactsContainerSelector = '.contacts';
 const addContactButtonSelector = '.form__add-contact-btn';
 const contactInputTemplate = document.querySelector('#contact-form-field');
+
 const openContactOptionsBtnClass = 'contact__open-options-btn';
+const contactOptionButtonClass = 'contact__option';
+const contactElementSelector = '.contact__item';
+const contactOptionsMenuSelector = '.contact__options';
+const contactOptionsMenuVisibleClass = 'contact__options_visible';
 
 const addClientForm = document.querySelector('.form-add-client');
 const editClientForm = document.querySelector('.form-edit-user');
@@ -51,6 +56,10 @@ const contactTypeToStringMap = {
 };
 
 const constantsContainer = Object.freeze({
+  contactOptionsMenuVisibleClass,
+  contactOptionsMenuSelector,
+  contactElementSelector,
+  contactOptionButtonClass,
   tooltipBtnClass,
   tooltipWrapperSelector,
   tooltipWrapperOpenedClass,
