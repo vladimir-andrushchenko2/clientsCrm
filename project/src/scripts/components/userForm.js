@@ -25,6 +25,10 @@ export default class UserForm {
     this._onSubmit(this.getInputs());
   }
 
+  reset() {
+    this._form.reset();
+  }
+
   getInputs() {
     const output = Object.create(null);
     output.contacts = [];

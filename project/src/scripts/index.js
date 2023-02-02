@@ -5,18 +5,10 @@ import UserForm from './components/userForm';
 import api from './api';
 import clientsState from './state/clientsState';
 import fillForm from './elementHandlers/fillForm';
+import onSubmitWrapper from './wrappers/onSubmitWrapper';
 
 const editUserPopUp = new Popup({
   popUp: constants.editClientPopUp,
-  ...constants,
-});
-
-const editUserForm = new UserForm({
-  formElement: constants.editClientForm,
-  onSubmit(formData) {
-    console.log(formData);
-    console.log(clientsState.getSelectedClient());
-  },
   ...constants,
 });
 
@@ -47,6 +39,22 @@ const table = new TableApp({
   ...constants,
 });
 
+const editUserForm = new UserForm({
+  formElement: constants.editClientForm,
+  onSubmit(formData) {
+    const { id } = clientsState.getSelectedClient();
+    const apiCallPromise = api.patchClient(id, formData);
+
+    onSubmitWrapper({
+      popUp: editUserPopUp,
+      form: editUserForm,
+      table,
+      apiCallResult: apiCallPromise,
+    });
+  },
+  ...constants,
+});
+
 const addUserPopUp = new Popup({
   popUp: constants.addClientPopUp,
   ...constants,
@@ -59,25 +67,12 @@ constants.addClientButton.addEventListener('click', () => {
 const addUserForm = new UserForm({
   formElement: constants.addClientForm,
   onSubmit(formData) {
-    addUserPopUp.hideError();
-    addUserPopUp.indicateLoading();
-
-    return api.postClient(formData)
-      .then(() => api.getClients())
-      .then((clients) => {
-        clientsState.setClients(clients);
-        table.render();
-
-        addUserPopUp.close();
-        constants.addClientForm.reset();
-      })
-      .catch((error) => {
-        const errorMsg = error.errors.map(({ message }) => message).join('\n');
-        addUserPopUp.displayError(errorMsg);
-      })
-      .finally(() => {
-        addUserPopUp.stopLoadingIndication();
-      });
+    onSubmitWrapper({
+      popUp: addUserPopUp,
+      table,
+      form: addUserForm,
+      apiCallResult: api.postClient(formData),
+    });
   },
   ...constants,
 });

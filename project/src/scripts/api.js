@@ -4,9 +4,10 @@ class Api {
   constructor(baseUrl, headers) {
     this.baseUrl = baseUrl;
     this.headers = headers;
+    this.makeRequest = this.makeRequestHandler.bind(this);
   }
 
-  makeRequest({ path, body, method = 'GET' }) {
+  makeRequestHandler({ path, body, method = 'GET' }) {
     const config = {
       headers: this.headers,
       method,
@@ -60,7 +61,7 @@ class Api {
   patchClient(clientId, {
     name, surname, lastName, contacts,
   }) {
-    const path = `/api/client/${clientId}`;
+    const path = `/api/clients/${clientId}`;
     return this.makeRequest({
       path,
       body: {
