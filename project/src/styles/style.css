@@ -133,6 +133,7 @@ button > * {
   height: 16px;
   border: 0;
   background-color: inherit;
+  cursor: pointer;
 }
 
 .contact:not(:last-child) {
@@ -162,7 +163,7 @@ button > * {
   color: white;
 }
 
-/* Triangle at the bottom of contact
+/* Triangle at the bottom of contact */
 .contact::before {
   visibility: hidden;
   content: "";
@@ -178,7 +179,6 @@ button > * {
 .contact_open.contact::before {
   visibility: visible;
 }
- */
 
 .contact_open .contact__tooltip {
   visibility: visible;

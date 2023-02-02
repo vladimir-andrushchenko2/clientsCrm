@@ -38,6 +38,10 @@ const deleteClientForm = document.querySelector('.form-delete-client');
 
 const currentContactTypeDisplaySelector = '.current-contact-option-identificator';
 
+const tooltipBtnClass = 'contact-show-tooltip-btn';
+const tooltipWrapperSelector = '.tooltip-wrapper';
+const tooltipWrapperOpenedClass = 'contact_open';
+
 const contactTypeToStringMap = {
   facebook: 'Facebook',
   email: 'Email',
@@ -47,6 +51,9 @@ const contactTypeToStringMap = {
 };
 
 const constantsContainer = Object.freeze({
+  tooltipBtnClass,
+  tooltipWrapperSelector,
+  tooltipWrapperOpenedClass,
   contactTypeToStringMap,
   currentContactTypeDisplaySelector,
   clientRowTemplate,

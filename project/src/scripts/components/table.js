@@ -14,6 +14,9 @@ export default class TableApp {
     onDeleteAction,
     clientEditBtnClass,
     clientDeleteBtnClass,
+    tooltipBtnClass,
+    tooltipWrapperSelector,
+    tooltipWrapperOpenedClass,
   }) {
     this.table = tableElement;
     this.tableHead = tableHead;
@@ -22,6 +25,9 @@ export default class TableApp {
     this.onDeleteAction = onDeleteAction;
     this.clientEditBtnClass = clientEditBtnClass;
     this.clientDeleteBtnClass = clientDeleteBtnClass;
+    this.tooltipBtnClass = tooltipBtnClass;
+    this.tooltipWrapperSelector = tooltipWrapperSelector;
+    this.tooltipWrapperOpenedClass = tooltipWrapperOpenedClass;
   }
 
   setSortControlsEventListeners() {
@@ -48,9 +54,20 @@ export default class TableApp {
     });
   }
 
+  setTooltipsEventListeners() {
+    this.table.addEventListener('click', ({ target }) => {
+      if (target.classList.contains(this.tooltipBtnClass)) {
+        target
+          .closest(this.tooltipWrapperSelector)
+          .classList.toggle(this.tooltipWrapperOpenedClass);
+      }
+    });
+  }
+
   setEventListeners() {
     this.setSortControlsEventListeners();
     this.setActionsEventListeners();
+    this.setTooltipsEventListeners();
   }
 
   setState(state) {
