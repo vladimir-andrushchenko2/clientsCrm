@@ -36,7 +36,19 @@ const loadIndicatorSelectorAndVisibleClass = ['.submit-loading-indicator', 'subm
 const deleteClientPopup = document.querySelector('.popup_delete-user');
 const deleteClientForm = document.querySelector('.form-delete-client');
 
-export default {
+const currentContactTypeDisplaySelector = '.current-contact-option-identificator';
+
+const contactTypeToStringMap = {
+  facebook: 'Facebook',
+  email: 'Email',
+  other: 'Другое',
+  tel: 'Телефон',
+  vk: 'Вконтакте',
+};
+
+const constantsContainer = Object.freeze({
+  contactTypeToStringMap,
+  currentContactTypeDisplaySelector,
   clientRowTemplate,
   clientContactTooltipTemplate,
   clientsTable,
@@ -63,4 +75,6 @@ export default {
   editClientSubtitle,
   deleteClientPopup,
   deleteClientForm,
-};
+});
+
+export default constantsContainer;

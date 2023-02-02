@@ -4,9 +4,19 @@ import TableApp from './components/table';
 import UserForm from './components/userForm';
 import api from './api';
 import clientsState from './state/clientsState';
+import fillForm from './elementHandlers/fillForm';
 
 const editUserPopUp = new Popup({
   popUp: constants.editClientPopUp,
+  ...constants,
+});
+
+const editUserForm = new UserForm({
+  formElement: constants.editClientForm,
+  onSubmit(formData) {
+    console.log(formData);
+    console.log(clientsState.getSelectedClient());
+  },
   ...constants,
 });
 
@@ -19,8 +29,16 @@ const table = new TableApp({
   tableElement: constants.clientsTable,
   onEditAction(clientId) {
     clientsState.selectClient(clientId);
+
     constants.editClientSubtitle.textContent = `ID: ${clientId}`;
+
     editUserPopUp.open();
+
+    fillForm({
+      form: constants.editClientForm,
+      ...clientsState.getSelectedClient(),
+      selectors: constants,
+    });
   },
   onDeleteAction(clientId) {
     clientsState.selectClient(clientId);

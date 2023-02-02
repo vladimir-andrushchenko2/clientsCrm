@@ -19,7 +19,7 @@
     <div class="popup__contents-container">
       <button aria-label="закрыть окно" type="button" class="popup__close-btn"></button>
 
-      <form class="popup__form form form-edit-user">
+      <form class="popup__form form form-edit-user" novalidate>
 
         <div class="popup__form-container">
           <div class="form__info">
@@ -29,17 +29,17 @@
 
           <label class="popup__label">
             <span class="popup__label-text">Фамилия<span class="accent-text">*</span></span>
-            <input type="text" class="popup__input" required>
+            <input name="surname" type="text" class="popup__input" required>
           </label>
 
           <label class="popup__label">
             <span class="popup__label-text">Имя<span class="accent-text">*</span></span>
-            <input type="text" class="popup__input" required>
+            <input name="name" type="text" class="popup__input" required>
           </label>
 
           <label class="popup__label">
             <span class="popup__label-text">Отчество</span>
-            <input type="text" class="popup__input" required>
+            <input name="lastName" type="text" class="popup__input">
           </label>
         </div>
 
@@ -253,7 +253,7 @@
     <li class="contact__item">
       <div class="contact__select">
         <button type="button" class="contact__btn contact__open-options-btn">
-          Телефон
+          <span class="current-contact-option-identificator">Телефон</span>
           <span class="arrow-symbol"></span>
         </button>
 
@@ -271,7 +271,7 @@
             <button class="contact__btn contact__option" type="button" data-contact-type="facebook">Facebook</button>
           </li>
           <li class="contact-option-wrapper">
-            <button class="contact__btn contact__option" type="button" data-contact-type="other">Other</button>
+            <button class="contact__btn contact__option" type="button" data-contact-type="other">Другое</button>
           </li>
         </ul>
       </div>

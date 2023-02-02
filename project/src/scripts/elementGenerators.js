@@ -71,3 +71,7 @@ export function createClientRowElement({
 
   return row;
 }
+
+export function createContactField() {
+  return constants.contactInputTemplate.content.cloneNode(true);
+}
