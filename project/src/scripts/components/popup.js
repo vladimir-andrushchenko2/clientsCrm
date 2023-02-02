@@ -22,6 +22,7 @@ export default class Popup {
     contactOptionButtonClass,
     contactOptionsMenuVisibleClass,
     contactOptionsMenuSelector,
+    contactDeleteButtonClass,
   }) {
     this.popUp = popUp;
 
@@ -44,6 +45,8 @@ export default class Popup {
 
     this._contactOptionsMenuVisibleClass = contactOptionsMenuVisibleClass;
     this._contactOptionsMenuSelector = contactOptionsMenuSelector;
+
+    this._contactDeleteButtonClass = contactDeleteButtonClass;
 
     this.setEventListeners();
   }
@@ -118,6 +121,16 @@ export default class Popup {
     });
   }
 
+  setDeleteContactEventListener() {
+    this.contactsContainer.addEventListener('click', ({ target }) => {
+      if (target.classList.contains(this._contactDeleteButtonClass)) {
+        const contactElement = target.closest(this._contactElementSelector);
+
+        contactElement.remove();
+      }
+    });
+  }
+
   setEventListeners() {
     this.setCloseBtnEventListener();
 
@@ -128,6 +141,7 @@ export default class Popup {
 
     if (this.contactsContainer) {
       this.setChangeContactTypeEventListener();
+      this.setDeleteContactEventListener();
     }
   }
 }

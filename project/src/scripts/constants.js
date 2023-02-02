@@ -26,6 +26,7 @@ const contactOptionButtonClass = 'contact__option';
 const contactElementSelector = '.contact__item';
 const contactOptionsMenuSelector = '.contact__options';
 const contactOptionsMenuVisibleClass = 'contact__options_visible';
+const contactDeleteButtonClass = 'contact__clear-btn';
 
 const addClientForm = document.querySelector('.form-add-client');
 const editClientForm = document.querySelector('.form-edit-user');
@@ -56,6 +57,7 @@ const contactTypeToStringMap = {
 };
 
 const constantsContainer = Object.freeze({
+  contactDeleteButtonClass,
   contactOptionsMenuVisibleClass,
   contactOptionsMenuSelector,
   contactElementSelector,
