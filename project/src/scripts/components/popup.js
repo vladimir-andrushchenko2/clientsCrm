@@ -20,7 +20,7 @@ export default class Popup {
     this.addContactButton = this.popUp.querySelector(addContactButtonSelector);
     this.contactInputTemplate = contactInputTemplate;
 
-    this._errorDisplay = document.querySelector(userErrorDisplaySelector);
+    this._errorDisplay = this.popUp.querySelector(userErrorDisplaySelector);
     this._errorDisplayOpenedClass = userErrorDisplayOpenedClass;
 
     this._loadIndicator = this.popUp.querySelector(loadIndicatorSelector);
