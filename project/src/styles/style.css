@@ -551,6 +551,11 @@ button > * {
   background-color: #8052ff;
   color: #fff;
   border: 0;
+  cursor: pointer;
+}
+
+.form__submit-btn:hover {
+  background-color: #b89eff;
 }
 
 @keyframes rotateInfinite {
