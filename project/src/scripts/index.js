@@ -21,17 +21,25 @@ const deleteUserPopUp = new Popup({
 const table = new TableApp({
   tableElement: constants.clientsTable,
   onEditAction(clientId) {
+    // select to check that client is in state
     clientsState.selectClient(clientId);
 
     constants.editClientSubtitle.textContent = `ID: ${clientId}`;
 
-    editUserPopUp.open();
+    api.getClient(clientId)
+      .then((clientData) => {
+        clientsState.updateSelectedClient(clientData);
+        editUserPopUp.open();
 
-    fillForm({
-      form: constants.editClientForm,
-      ...clientsState.getSelectedClient(),
-      selectors: constants,
-    });
+        fillForm({
+          form: constants.editClientForm,
+          ...clientsState.getSelectedClient(),
+          selectors: constants,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
   onDeleteAction(clientId) {
     clientsState.selectClient(clientId);
