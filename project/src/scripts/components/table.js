@@ -1,4 +1,5 @@
 import { createClientRowElement } from '../elementGenerators';
+import state from '../state/clientsState';
 
 // tableElements is there created rows will be appended to
 // sortConrols is some parent element that has buttons with class sortControlSelector
@@ -34,7 +35,8 @@ export default class TableApp {
     this.tableHead.addEventListener('click', ({ target }) => {
       if (target.classList.contains(this.sortControlSelector)) {
         const { sortMethodName } = target.dataset;
-        this.currentSortMethodName = sortMethodName;
+        this.currentSort = sortMethodName;
+        this.clientsToDisplay = state.getClientsSortedBy(this.currentSort);
         this.render();
       }
     });
@@ -70,23 +72,15 @@ export default class TableApp {
     this.setTooltipsEventListeners();
   }
 
-  setState(state) {
-    this.state = state;
-  }
-
   render() {
     this.table.innerHTML = '';
 
-    const displayedClients = this.currentSortMethodName
-      ? this.state.getClientsSortedBy(this.currentSortMethodName)
-      : this.state.getClients();
-
-    this.table.append(...displayedClients.map(createClientRowElement));
+    this.table.append(...this.clientsToDisplay.map(createClientRowElement));
   }
 
-  init(state) {
-    this.setState(state);
+  init() {
     this.setEventListeners();
+    this.clientsToDisplay = state.getClients();
     this.render();
   }
 }

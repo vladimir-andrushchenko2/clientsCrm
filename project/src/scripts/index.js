@@ -97,9 +97,6 @@ api.getClients()
   .then((clients) => {
     clientsState.setClients(clients);
 
-    // for testing
-    clientsState.selectClient(clients[0].id);
-
-    table.init(clientsState);
+    table.init();
   })
   .catch((err) => console.log(err));
