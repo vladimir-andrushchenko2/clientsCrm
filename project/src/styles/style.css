@@ -173,7 +173,6 @@ button > * {
   transform: translateY(calc(-100% - 11px)) translateX(-50%);
   padding: 7px 15px;
   width: max-content;
-  max-width: 163px;
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
