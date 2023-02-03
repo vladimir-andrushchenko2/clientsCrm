@@ -6,6 +6,7 @@ import api from './api';
 import clientsState from './state/clientsState';
 import { fillForm } from './elementHandlers/fillForm';
 import onSubmitWrapper from './wrappers/onSubmitWrapper';
+import InputWrapper from './components/searchBar';
 
 const editUserPopUp = new Popup({
   popUp: constants.editClientPopUp,
@@ -37,6 +38,18 @@ const table = new TableApp({
     deleteUserPopUp.open();
   },
   ...constants,
+});
+
+const searchBar = new InputWrapper({
+  inputElement: constants.searchBarInputElement,
+  onInput(value) {
+    api.getClients(value)
+      .then((res) => {
+        clientsState.setClients(res);
+        table.syncWithState();
+        table.render();
+      });
+  },
 });
 
 const deleteUserForm = new UserForm({

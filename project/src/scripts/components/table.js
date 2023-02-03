@@ -97,7 +97,7 @@ export default class TableApp {
     this.setTooltipsEventListeners();
   }
 
-  sync() {
+  syncWithState() {
     this.dropSortingIndication();
     this.currentSortMethodName = null;
     this.clientsToDisplay = state.getClients();
@@ -105,7 +105,6 @@ export default class TableApp {
 
   render() {
     this.table.innerHTML = '';
-
     this.table.append(...this.clientsToDisplay.map(createClientRowElement));
   }
 

@@ -50,6 +50,8 @@ const tooltipBtnClass = 'contact-show-tooltip-btn';
 const tooltipWrapperSelector = '.tooltip-wrapper';
 const tooltipWrapperOpenedClass = 'contact_open';
 
+const searchBarInputElement = document.querySelector('.header__search');
+
 const contactTypeToStringMap = {
   facebook: 'Facebook',
   email: 'Email',
@@ -59,6 +61,7 @@ const contactTypeToStringMap = {
 };
 
 const constantsContainer = Object.freeze({
+  searchBarInputElement,
   sortControlReversedClass,
   sortControlActiveClass,
   contactDeleteButtonClass,
