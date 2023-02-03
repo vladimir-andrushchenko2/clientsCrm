@@ -52,6 +52,8 @@ const tooltipWrapperOpenedClass = 'contact_open';
 
 const searchBarInputElement = document.querySelector('.header__search');
 
+const formSecondaryActionBtnSelector = '.form__secondary-action-btn';
+
 const contactTypeToStringMap = {
   facebook: 'Facebook',
   email: 'Email',
@@ -61,6 +63,7 @@ const contactTypeToStringMap = {
 };
 
 const constantsContainer = Object.freeze({
+  formSecondaryActionBtnSelector,
   searchBarInputElement,
   sortControlReversedClass,
   sortControlActiveClass,

@@ -603,7 +603,7 @@ button > * {
   visibility: visible;
 }
 
-.form__delete-btn {
+.form__secondary-action-btn {
   margin: 5px auto 0;
   max-width: max-content;
   font-weight: 400;
@@ -613,6 +613,11 @@ button > * {
   background-color: inherit;
   border: 0;
   text-decoration: underline;
+  cursor: pointer;
+}
+
+.form__secondary-action-btn:hover {
+  color: #666;
 }
 
 .form__confirmation {

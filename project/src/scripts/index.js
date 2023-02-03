@@ -113,6 +113,18 @@ const addUserForm = new UserForm({
       apiCallResult: api.postClient(formData),
     });
   },
+  onSecondaryAction() {
+    fillForm({
+      form: constants.addClientForm,
+      name: '',
+      surname: '',
+      lastName: '',
+      contacts: [],
+      selectors: constants,
+    });
+
+    addUserPopUp.close();
+  },
   ...constants,
 });
 

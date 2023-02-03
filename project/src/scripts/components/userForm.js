@@ -4,11 +4,15 @@ export default class UserForm {
     userInfoInputSelector,
     userContactsInputSelector,
     onSubmit,
+    formSecondaryActionBtnSelector,
+    onSecondaryAction,
   }) {
     this._form = formElement;
     this._userInfoInputSelector = userInfoInputSelector;
     this._userContactsInputSelector = userContactsInputSelector;
     this._onSubmit = onSubmit;
+    this._onSecondaryAction = onSecondaryAction?.bind(this);
+    this._secondaryActionBtn = this._form.querySelector(formSecondaryActionBtnSelector);
 
     this.submitHandler = this._handleSubmit.bind(this);
 
@@ -17,6 +21,7 @@ export default class UserForm {
 
   _setEventListeners() {
     this._form.addEventListener('submit', this.submitHandler);
+    this._secondaryActionBtn.addEventListener('click', this._onSecondaryAction);
   }
 
   _handleSubmit(event) {
