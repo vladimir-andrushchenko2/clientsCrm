@@ -75,6 +75,9 @@ const deleteUserForm = new UserForm({
       apiCallResult: apiCallPromise,
     });
   },
+  onSecondaryAction() {
+    deleteUserPopUp.close();
+  },
   ...constants,
 });
 
