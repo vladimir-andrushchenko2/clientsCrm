@@ -12,7 +12,7 @@ function onSubmitWrapper({
     .then((clients) => {
       clientsState.setClients(clients);
 
-      table.sync();
+      table.syncWithState();
       table.render();
 
       popUp.close();
@@ -20,6 +20,7 @@ function onSubmitWrapper({
       form.reset();
     })
     .catch((error) => {
+      console.error(error);
       const errorMsg = error.errors.map(({ message }) => message).join('\n');
       popUp.displayError(errorMsg);
     })
