@@ -11,9 +11,12 @@ function onSubmitWrapper({
     .then(() => api.getClients())
     .then((clients) => {
       clientsState.setClients(clients);
+
+      table.sync();
       table.render();
 
       popUp.close();
+
       form.reset();
     })
     .catch((error) => {

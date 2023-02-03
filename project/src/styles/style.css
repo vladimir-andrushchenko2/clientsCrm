@@ -67,6 +67,19 @@ button > * {
   height: 8px;
   margin: 0 1px;
   display: inline-block;
+  transform: rotate(180deg);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.table__control_active .arrow-symbol {
+  visibility: visible;
+  opacity: 1;
+}
+
+.table__control_reversed .arrow-symbol {
+  transform: rotate(0deg);
 }
 
 .table-wrapper {
@@ -116,6 +129,11 @@ button > * {
   background-color: inherit;
   cursor: pointer;
   position: relative;
+}
+
+.table__control_active {
+  outline: 2px solid #9873ff;
+  outline-offset: 3px;
 }
 
 /* Contact indicator */

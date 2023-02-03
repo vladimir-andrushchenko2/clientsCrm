@@ -10,7 +10,7 @@ export default class TableApp {
   constructor({
     tableElement,
     tableHead,
-    sortControlSelector,
+    sortControlClass,
     onEditAction,
     onDeleteAction,
     clientEditBtnClass,
@@ -18,10 +18,12 @@ export default class TableApp {
     tooltipBtnClass,
     tooltipWrapperSelector,
     tooltipWrapperOpenedClass,
+    sortControlReversedClass,
+    sortControlActiveClass,
   }) {
     this.table = tableElement;
     this.tableHead = tableHead;
-    this.sortControlSelector = sortControlSelector;
+    this.sortControlClass = sortControlClass;
     this.onEditAction = onEditAction;
     this.onDeleteAction = onDeleteAction;
     this.clientEditBtnClass = clientEditBtnClass;
@@ -29,14 +31,37 @@ export default class TableApp {
     this.tooltipBtnClass = tooltipBtnClass;
     this.tooltipWrapperSelector = tooltipWrapperSelector;
     this.tooltipWrapperOpenedClass = tooltipWrapperOpenedClass;
+    this.sortControlReversedClass = sortControlReversedClass;
+    this.sortControlActiveClass = sortControlActiveClass;
+    this.allSortControlls = Array.from(tableHead.querySelectorAll(`.${sortControlClass}`));
+  }
+
+  dropSortingIndication() {
+    this.allSortControlls.forEach((sortControl) => {
+      sortControl.classList.remove(this.sortControlActiveClass);
+      sortControl.classList.remove(this.sortControlReversedClass);
+    });
   }
 
   setSortControlsEventListeners() {
     this.tableHead.addEventListener('click', ({ target }) => {
-      if (target.classList.contains(this.sortControlSelector)) {
+      if (target.classList.contains(this.sortControlClass)) {
         const { sortMethodName } = target.dataset;
-        this.currentSort = sortMethodName;
-        this.clientsToDisplay = state.getClientsSortedBy(this.currentSort);
+
+        // if button clicked another time
+        if (this.currentSortMethodName !== sortMethodName) {
+          this.dropSortingIndication();
+
+          target.classList.add(this.sortControlActiveClass);
+
+          this.currentSortMethodName = sortMethodName;
+
+          this.clientsToDisplay = state.getClientsSortedBy(this.currentSortMethodName);
+        } else {
+          target.classList.toggle(this.sortControlReversedClass);
+          this.clientsToDisplay.reverse();
+        }
+
         this.render();
       }
     });
@@ -70,6 +95,12 @@ export default class TableApp {
     this.setSortControlsEventListeners();
     this.setActionsEventListeners();
     this.setTooltipsEventListeners();
+  }
+
+  sync() {
+    this.dropSortingIndication();
+    this.currentSortMethodName = null;
+    this.clientsToDisplay = state.getClients();
   }
 
   render() {

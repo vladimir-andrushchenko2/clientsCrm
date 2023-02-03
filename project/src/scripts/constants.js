@@ -3,7 +3,9 @@ const clientContactTooltipTemplate = document.querySelector('#contact-tooltip');
 const clientsTable = document.querySelector('.table-clients-container');
 const tableHead = document.querySelector('.table__head');
 
-const sortControlSelector = 'table__control';
+const sortControlClass = 'table__control';
+const sortControlActiveClass = 'table__control_active';
+const sortControlReversedClass = 'table__control_reversed';
 
 const clientEditBtnClass = 'client-edit-btn';
 const clientDeleteBtnClass = 'client-delete-btn';
@@ -57,6 +59,8 @@ const contactTypeToStringMap = {
 };
 
 const constantsContainer = Object.freeze({
+  sortControlReversedClass,
+  sortControlActiveClass,
   contactDeleteButtonClass,
   contactOptionsMenuVisibleClass,
   contactOptionsMenuSelector,
@@ -89,7 +93,7 @@ const constantsContainer = Object.freeze({
   editClientForm,
   clientEditBtnClass,
   clientDeleteBtnClass,
-  sortControlSelector,
+  sortControlClass,
   editClientSubtitle,
   deleteClientPopup,
   deleteClientForm,
