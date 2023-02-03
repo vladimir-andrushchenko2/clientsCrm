@@ -48,6 +48,8 @@ export default class Popup {
 
     this._contactDeleteButtonClass = contactDeleteButtonClass;
 
+    this._maxContactsLength = 10;
+
     this.addContactToContactsContainer = this.addContactToContactsContainerHandler.bind(this);
 
     this.setEventListeners();
@@ -87,11 +89,11 @@ export default class Popup {
     const contacts = this._contactsContainer.querySelectorAll(this._contactElementSelector);
 
     if (!this._popUp.querySelector(this._addContactButtonSelector)
-      && contacts.length <= 4) {
+      && contacts.length < this._maxContactsLength) {
       this._contactsContainer.after(this._addContactButton);
     }
 
-    if (contacts.length > 4) {
+    if (contacts.length >= this._maxContactsLength) {
       this._addContactButton.remove();
     }
   }
