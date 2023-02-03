@@ -330,6 +330,8 @@ button > * {
   width: 100vw;
   height: 100vh;
   position: fixed;
+  left: 0;
+  top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
   visibility: hidden;

@@ -36,6 +36,8 @@ const table = new TableApp({
           ...clientsState.getSelectedClient(),
           selectors: constants,
         });
+
+        editUserPopUp.updateAddContactButton();
       })
       .catch((err) => {
         console.log(err);
