@@ -60,6 +60,24 @@ class ClientsState {
     this._seletedClient = selectedClient;
   }
 
+  updateSelectedClient(updatedClient) {
+    if (!this._clients) {
+      throw new Error('clients havent been set, use setClients');
+    }
+
+    if (!this._seletedClient) {
+      throw new Error('no selected student, when calling clientsState.getSelectedClient();');
+    }
+
+    if (updatedClient.id !== this._seletedClient.id) {
+      throw new Error('updatedClient.id !== this._seletedClient.id, in updateSelectedClient(updatedClient)');
+    }
+
+    Object.entries(updatedClient).forEach(([key, value]) => {
+      this._seletedClient[key] = value;
+    });
+  }
+
   getSelectedClient() {
     if (!this._seletedClient) {
       throw new Error('no selected student, when calling clientsState.getSelectedClient();');
