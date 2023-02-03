@@ -24,18 +24,18 @@ export default class Popup {
     contactOptionsMenuSelector,
     contactDeleteButtonClass,
   }) {
-    this.popUp = popUp;
+    this._popUp = popUp;
 
-    this.closeButton = this.popUp.querySelector(closeButtonSelector);
-    this.popupOpenedClass = popupOpenedClass;
+    this._closeButton = this._popUp.querySelector(closeButtonSelector);
+    this._popupOpenedClass = popupOpenedClass;
 
-    this.contactsContainer = this.popUp.querySelector(contactsContainerSelector);
-    this.addContactButton = this.popUp.querySelector(addContactButtonSelector);
+    this._contactsContainer = this._popUp.querySelector(contactsContainerSelector);
+    this._addContactButton = this._popUp.querySelector(addContactButtonSelector);
 
-    this._errorDisplay = this.popUp.querySelector(userErrorDisplaySelector);
+    this._errorDisplay = this._popUp.querySelector(userErrorDisplaySelector);
     this._errorDisplayOpenedClass = userErrorDisplayOpenedClass;
 
-    this._loadIndicator = this.popUp.querySelector(loadIndicatorSelector);
+    this._loadIndicator = this._popUp.querySelector(loadIndicatorSelector);
     this._loadIndicatorVisibleClass = loadIndicatoVisibleClass;
 
     this._openContactOptionsBtnClass = openContactOptionsBtnClass;
@@ -48,19 +48,21 @@ export default class Popup {
 
     this._contactDeleteButtonClass = contactDeleteButtonClass;
 
+    this.addContactToContactsContainer = this.addContactToContactsContainerHandler.bind(this);
+
     this.setEventListeners();
   }
 
   close() {
-    this.popUp.classList.remove(this.popupOpenedClass);
+    this._popUp.classList.remove(this._popupOpenedClass);
   }
 
   open() {
-    this.popUp.classList.add(this.popupOpenedClass);
+    this._popUp.classList.add(this._popupOpenedClass);
   }
 
   clearContactFields() {
-    this.contactsContainer.innerHTML = '';
+    this._contactsContainer.innerHTML = '';
   }
 
   displayError(errorText) {
@@ -81,20 +83,41 @@ export default class Popup {
     this._loadIndicator.classList.remove(this._loadIndicatorVisibleClass);
   }
 
+  updateAddContactButton() {
+    const contacts = this._contactsContainer.querySelectorAll(this._contactElementSelector);
+
+    if (!this._popUp.querySelector(this._addContactButtonSelector)
+      && contacts.length <= 4) {
+      this._contactsContainer.after(this._addContactButton);
+    }
+
+    if (contacts.length > 4) {
+      this._addContactButton.remove();
+    }
+  }
+
+  addContactToContactsContainerHandler() {
+    if (!this._contactsContainer) {
+      throw new Error('No contacts container to add to');
+    }
+
+    this._contactsContainer.append(createContactField());
+
+    this.updateAddContactButton();
+  }
+
   setCloseBtnEventListener() {
-    this.closeButton.addEventListener('click', () => {
+    this._closeButton.addEventListener('click', () => {
       this.close();
     });
   }
 
   setAddContactEventListener() {
-    this.addContactButton.addEventListener('click', () => {
-      this.contactsContainer.append(createContactField());
-    });
+    this._addContactButton.addEventListener('click', this.addContactToContactsContainer);
   }
 
   setContactTypeSelectEventListener() {
-    this.contactsContainer.addEventListener('click', ({ target }) => {
+    this._contactsContainer.addEventListener('click', ({ target }) => {
       if (target.classList.contains(this._openContactOptionsBtnClass)) {
         const contactElement = target.closest(this._contactElementSelector);
         toggleContactOptionsMenuVisibility(contactElement);
@@ -103,7 +126,7 @@ export default class Popup {
   }
 
   setChangeContactTypeEventListener() {
-    this.contactsContainer.addEventListener('click', ({ target }) => {
+    this._contactsContainer.addEventListener('click', ({ target }) => {
       if (target.classList.contains(this._contactOptionButtonClass)) {
         const type = target.dataset.contactType;
 
@@ -122,11 +145,13 @@ export default class Popup {
   }
 
   setDeleteContactEventListener() {
-    this.contactsContainer.addEventListener('click', ({ target }) => {
+    this._contactsContainer.addEventListener('click', ({ target }) => {
       if (target.classList.contains(this._contactDeleteButtonClass)) {
         const contactElement = target.closest(this._contactElementSelector);
 
         contactElement.remove();
+
+        this.updateAddContactButton();
       }
     });
   }
@@ -134,12 +159,12 @@ export default class Popup {
   setEventListeners() {
     this.setCloseBtnEventListener();
 
-    if (this.addContactButton) {
+    if (this._addContactButton) {
       this.setAddContactEventListener();
-      this.setContactTypeSelectEventListener();
     }
 
-    if (this.contactsContainer) {
+    if (this._contactsContainer) {
+      this.setContactTypeSelectEventListener();
       this.setChangeContactTypeEventListener();
       this.setDeleteContactEventListener();
     }
