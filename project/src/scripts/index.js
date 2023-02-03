@@ -91,6 +91,18 @@ const editUserForm = new UserForm({
       apiCallResult: apiCallPromise,
     });
   },
+  onSecondaryAction() {
+    fillForm({
+      form: constants.addClientForm,
+      name: '',
+      surname: '',
+      lastName: '',
+      contacts: [],
+      selectors: constants,
+    });
+    editUserPopUp.close();
+    deleteUserPopUp.open();
+  },
   ...constants,
 });
 
