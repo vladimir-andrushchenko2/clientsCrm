@@ -43,6 +43,7 @@ export function makeContactTooltipElement({ type, value }) {
   } else {
     anchor.href = value;
     anchor.textContent = value;
+    anchor.classList.add('contact__link');
     tooltipWindow.append(`${type}: `, anchor);
   }
 
