@@ -50,7 +50,8 @@ const table = new TableApp({
   ...constants,
 });
 
-const searchBar = new InputWrapper({
+// hang it on window so that eslint doesn't complain it is unused
+window.searchBar = new InputWrapper({
   inputElement: constants.searchBarInputElement,
   onInput(value) {
     api.getClients(value)
