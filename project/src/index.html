@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -23,22 +23,22 @@
 
         <div class="popup__form-container">
           <div class="form__info">
-            <h2 class="popup__title">Изменить данные</h2>
+            <h2 class="popup__title">Change data</h2>
             <p class="popup__subtitle">ID: 123458</p>
           </div>
 
           <label class="popup__label">
-            <span class="popup__label-text">Фамилия<span class="accent-text">*</span></span>
+            <span class="popup__label-text">Surname<span class="accent-text">*</span></span>
             <input name="surname" type="text" class="popup__input" required>
           </label>
 
           <label class="popup__label">
-            <span class="popup__label-text">Имя<span class="accent-text">*</span></span>
+            <span class="popup__label-text">Name<span class="accent-text">*</span></span>
             <input name="name" type="text" class="popup__input" required>
           </label>
 
           <label class="popup__label">
-            <span class="popup__label-text">Отчество</span>
+            <span class="popup__label-text">Company</span>
             <input name="lastName" type="text" class="popup__input">
           </label>
         </div>
@@ -47,7 +47,7 @@
 
           <ul class="contacts"></ul>
 
-          <button type="button" class="form__add-contact-btn">Добавить контакт</button>
+          <button type="button" class="form__add-contact-btn">Add a contact</button>
 
         </div>
 
@@ -55,9 +55,9 @@
           <div class="popup__error-display"></div>
           <button type="submit" class="form__submit-btn">
             <span class="submit-loading-indicator"></span>
-            Сохранить
+            Save
           </button>
-          <button type="button" class="form__secondary-action-btn">Удалить клиента</button>
+          <button type="button" class="form__secondary-action-btn">Delete the client</button>
         </div>
 
       </form>
@@ -73,21 +73,21 @@
 
         <div class="popup__form-container">
           <div class="form__info">
-            <h2 class="popup__title">Новый клиент</h2>
+            <h2 class="popup__title">New client</h2>
           </div>
 
           <label class="popup__label">
-            <span class="popup__label-text">Фамилия<span class="accent-text">*</span></span>
+            <span class="popup__label-text">Surname<span class="accent-text">*</span></span>
             <input name="surname" type="text" class="popup__input" required>
           </label>
 
           <label class="popup__label">
-            <span class="popup__label-text">Имя<span class="accent-text">*</span></span>
+            <span class="popup__label-text">Name<span class="accent-text">*</span></span>
             <input name="name" type="text" class="popup__input" required>
           </label>
 
           <label class="popup__label">
-            <span class="popup__label-text">Отчество</span>
+            <span class="popup__label-text">Company</span>
             <input name="lastName" type="text" class="popup__input">
           </label>
         </div>
@@ -96,7 +96,7 @@
 
           <ul class="contacts"></ul>
 
-          <button type="button" class="form__add-contact-btn">Добавить контакт</button>
+          <button type="button" class="form__add-contact-btn">Add a contanct</button>
 
         </div>
 
@@ -122,8 +122,8 @@
 
         <div class="popup__form-container">
           <div class="form__confirmation">
-            <h2 class="popup__confirmation-msg">Удалить клиента</h2>
-            <p class="popup__subtitle">Вы действительно хотите удалить данного клиента?</p>
+            <h2 class="popup__confirmation-msg">Delete</h2>
+            <p class="popup__subtitle">Are you sure?</p>
           </div>
 
           <div class="popup__error-display"></div>
@@ -131,7 +131,7 @@
             <span class="submit-loading-indicator"></span>
             Удалить
           </button>
-          <button type="button" class="form__secondary-action-btn">Отмена</button>
+          <button type="button" class="form__secondary-action-btn">Cancel</button>
         </div>
 
       </form>
@@ -145,14 +145,14 @@
         <a class="header__logo-link" href="#" class="header__logo">
           <img class="header__logo" src="./images/logo.svg" alt="Лого">
         </a>
-        <input class="header__search" type="text" placeholder="Введите запрос">
+        <input class="header__search" type="text" placeholder="Enter your request">
       </div>
     </div>
   </header>
 
   <main class="main">
     <div class="container">
-      <h1 class="main__title">Клиенты</h1>
+      <h1 class="main__title">Clients</h1>
 
       <div class="table-wrapper">
         <table class="table">
@@ -165,24 +165,24 @@
                 </button>
               </th>
               <th class="table__header-item">
-                <button aria-label="Сортировать по имени" type="button" class="button table__control sort__name"
+                <button aria-label="Sort by info" type="button" class="button table__control sort__name"
                   data-sort-method-name="sortedByName">
-                  Фамилия Имя Отчество
+                  Clients info
                   <div class="arrow-symbol"></div>
-                  <span class="accent-text small-text">А-Я</span>
+                  <span class="accent-text small-text">A-Z</span>
                 </button>
               </th>
               <th class="table__header-item">
-                <button aria-label="Сортировать по имени" type="button" class="button table__control sort__created"
+                <button aria-label="Sort by date created" type="button" class="button table__control sort__created"
                   data-sort-method-name="sortedByCreatedAt">
-                  Дата и время создания
+                  Created at
                   <div class="arrow-symbol"></div>
                 </button>
               </th>
               <th class="table__header-item">
-                <button aria-label="Сортировать по имени" type="button" class="button table__control sort__edited"
+                <button aria-label="Sort by last updated" type="button" class="button table__control sort__edited"
                   data-sort-method-name="sortedByUpdatedAt">
-                  Последние изменения
+                  Last change
                   <div class="arrow-symbol"></div>
                 </button>
               </th>
@@ -206,7 +206,7 @@
             d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z"
             fill="#9873FF" />
         </svg>
-        Добавить клиента
+        Add another client
       </button>
     </div>
   </main>
@@ -233,10 +233,10 @@
 
       <td class="table__cell table__actions-cell">
         <button type="button" class="button client-action-btn client-edit-btn">
-          Изменить
+          Update
         </button>
         <button type="button" class="button client-action-btn client-delete-btn">
-          Удалить
+          Delete
         </button>
       </td>
     </tr>
@@ -246,7 +246,7 @@
     <!-- add .contact_open for .contact to open -->
     <span class="contact tooltip-wrapper ">
       <!-- .contact-tooltip-(facebook|email|other|vk|tel|facebook)-icon  add to button -->
-      <button aria-label="Показать контакт" type="button" class="contact-show-tooltip-btn"></button>
+      <button aria-label="Show contact" type="button" class="contact-show-tooltip-btn"></button>
       <span class="contact__tooltip tooltip"></span>
     </span>
   </template>
@@ -255,13 +255,13 @@
     <li class="contact__item">
       <div class="contact__select">
         <button type="button" class="contact__btn contact__open-options-btn">
-          <span class="current-contact-option-identificator">Телефон</span>
+          <span class="current-contact-option-identificator">Phone</span>
           <span class="arrow-symbol"></span>
         </button>
 
         <ul class="contact__options">
           <li class="contact-option-wrapper">
-            <button class="contact__btn contact__option" type="button" data-contact-type="tel">Телефон</button>
+            <button class="contact__btn contact__option" type="button" data-contact-type="tel">Phone</button>
           </li>
           <li class="contact-option-wrapper">
             <button class="contact__btn contact__option" type="button" data-contact-type="email">Email</button>
@@ -273,14 +273,14 @@
             <button class="contact__btn contact__option" type="button" data-contact-type="facebook">Facebook</button>
           </li>
           <li class="contact-option-wrapper">
-            <button class="contact__btn contact__option" type="button" data-contact-type="other">Другое</button>
+            <button class="contact__btn contact__option" type="button" data-contact-type="other">Other</button>
           </li>
         </ul>
       </div>
 
-      <input name="tel" class="contact__input" type="tel" placeholder="Введите данные контакта" required>
+      <input name="tel" class="contact__input" type="tel" placeholder="Enter clients data" required>
 
-      <button type="button" class="contact__clear-btn" aria-label="Очистить поле"></button>
+      <button type="button" class="contact__clear-btn" aria-label="Clear input"></button>
     </li>
   </template>
 
@@ -288,10 +288,3 @@
 </body>
 
 </html>
-
-<!-- Examples of contact tooltips
-  inside tooltip message i use
-  <a class="contact__tel" href="tel:+#">#</a>
-  <a class="contact__link" href="mailto:#">#</a>
-  Twitter: <a class="contact__link" href="#">#</a>
--->
