@@ -1,4 +1,4 @@
-import api from '../api';
+import api from '../apis/api';
 import clientsState from '../state/clientsState';
 
 function onSubmitWrapper({

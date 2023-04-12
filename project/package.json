@@ -15,5 +15,9 @@
     "eslint-formatter-gitlab": "^2.1.0",
     "eslint-plugin-import": "^2.22.1",
     "parcel": "^2.8.2"
+  },
+  "dependencies": {
+    "immer": "^9.0.21",
+    "uuid": "^9.0.0"
   }
 }

@@ -2,7 +2,7 @@ import constants from './constants';
 import Popup from './components/popup';
 import TableApp from './components/table';
 import UserForm from './components/userForm';
-import api from './api';
+import api from './apis/api';
 import clientsState from './state/clientsState';
 import { fillForm } from './elementHandlers/fillForm';
 import onSubmitWrapper from './wrappers/onSubmitWrapper';
