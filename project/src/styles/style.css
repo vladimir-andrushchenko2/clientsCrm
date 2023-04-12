@@ -486,6 +486,16 @@ button > * {
   transition: 0.2s ease-in-out;
 }
 
+@keyframes animate-background {
+  from {
+    background-size: 13px;
+  }
+
+  to {
+    background-size: 17px;
+  }
+}
+
 .contact__open-options-btn {
   background-color: #e7e5eb;
   border: 1px solid #c8c5d1;
@@ -493,7 +503,10 @@ button > * {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  /* position: relative; */
+  background-image: url("../images/ui/menu-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 90%;
+  animation: animate-background 0.5s ease-in-out infinite alternate;
 }
 
 .contact__btn:hover {

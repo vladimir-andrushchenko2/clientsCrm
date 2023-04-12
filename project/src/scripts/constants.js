@@ -57,9 +57,9 @@ const formSecondaryActionBtnSelector = '.form__secondary-action-btn';
 const contactTypeToStringMap = {
   facebook: 'Facebook',
   email: 'Email',
-  other: 'Другое',
-  tel: 'Телефон',
-  vk: 'Вконтакте',
+  other: 'Other',
+  tel: 'Phone',
+  vk: 'Vk',
 };
 
 const constantsContainer = Object.freeze({
