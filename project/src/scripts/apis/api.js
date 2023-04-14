@@ -25,13 +25,6 @@ function wrapInPromise(value) {
   });
 }
 
-function initLocalStorage() {
-  if (!localStorage.getItem(stateKey)) {
-    console.log('initialized local storage');
-    rewriteStoredClients([]);
-  }
-}
-
 function getClients(searchQuery) {
   const clients = getStoredClients();
 
@@ -102,6 +95,32 @@ const localHostApi = {
   patchClient,
   deleteClient,
 };
+
+function initLocalStorage() {
+  if (!localStorage.getItem(stateKey)) {
+    console.log('initialized local storage');
+    // initialize with empty array
+    rewriteStoredClients([]);
+    postClient({
+      name: 'Volodymyr',
+      surname: 'Andrushchenko',
+      contacts: [
+        {
+          type: 'tel',
+          value: '+97855123454',
+        },
+        {
+          type: 'email',
+          value: 'andrushchenko.vladimir@gmail.com',
+        },
+        {
+          type: 'other',
+          value: 'https://github.com/vladimir-andrushchenko2',
+        },
+      ],
+    });
+  }
+}
 
 initLocalStorage();
 
