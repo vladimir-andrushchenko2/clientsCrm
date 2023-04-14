@@ -586,6 +586,7 @@ button > * {
   color: #fff;
   border: 0;
   cursor: pointer;
+  position: relative;
 }
 
 .form__submit-btn:hover {
@@ -611,6 +612,8 @@ button > * {
   height: 16px;
   margin-right: 7px;
   visibility: hidden;
+  position: absolute;
+  left: 12px;
 }
 
 .submit-loading-indicator_visible {

@@ -104,6 +104,7 @@ function initLocalStorage() {
     postClient({
       name: 'Volodymyr',
       surname: 'Andrushchenko',
+      lastName: '',
       contacts: [
         {
           type: 'tel',
