@@ -108,7 +108,7 @@ function initLocalStorage() {
       contacts: [
         {
           type: 'tel',
-          value: '+97855123454',
+          value: '+48664938289',
         },
         {
           type: 'email',
